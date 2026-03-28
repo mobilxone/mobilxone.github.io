@@ -1,0 +1,221 @@
+{
+  "profile": {
+    "name": "LIU JUNJIE",
+    "avatar": "./images/rx2.png",
+    "socials": {
+      "email": "1272156737@qq.com",  
+      "instagram": "https://instagram.com/your_handle",
+      "twitter": "https://twitter.com/your_handle"
+    },
+    "en": {
+      "name": "LIU JUNJIE",
+      "title": "Photographer & AI Graphic Designer",
+      "desc": "Specializing in AI-generated imagery and product photography, I skillfully utilize soft, natural lighting to precisely capture product textures, faithfully reproducing subtle interplay of light and shadow to deliver sophisticated, premium-quality visual aesthetics.",
+      "skills": ["INTERIOR PHOTOGRAPHY", "LIGHTING DESIGN", "RETOUCHING"],
+      "timeline": [
+        { "date": "2025 - PRESENT", "role": "AI Graphic Designer", "comp": "Wu Ji Suo You Studio" },
+        { "date": "2023 - 2025", "role": "Chief Photographer", "comp": "Zhuhai Huihuan Co. Ltd." },
+        { "date": "2022 - 2023", "role": "Chief Photographer", "comp": "Zhongshan Quran E-commerce Co. Ltd." },
+        { "date": "2019 - 2022", "role": "Associate Degree", "comp": "Guangdong Polytechnic of Water Resources and Electric Power" }
+      ]
+    },
+    "zh": {
+      "name": "刘俊杰",
+      "title": "摄影师与AI平面设计师",
+      "desc": "专注AI生图与产品摄影，擅长运用柔和自然光营造层次丰富的光影效果，通过细腻的明暗对比勾勒产品轮廓，精准还原材质肌理与立体质感，让光影成为视觉核心，赋予画面通透氛围感，打造兼具高级质感与商业美感的影像作品。",
+      "skills": ["室内摄影", "光影设计", "后期修图"],
+      "timeline": [
+        { "date": "2025 - 至今", "role": "AI平面设计师", "comp": "无既所有工作室" },
+        { "date": "2023 - 2025", "role": "首席摄影师", "comp": "珠海辉环有限公司" },
+        { "date": "2022 - 2023", "role": "首席摄影师", "comp": "中山趣然电子商务有限公司" },
+        { "date": "2019 - 2022", "role": "大专学位", "comp": "广东水利电力职业技术学院" }
+      ]
+    }
+  },
+  "ui": {
+    "en": { "about": "ABOUT", "explore": "EXPLORE PROJECT", "back": "BACK TO GALLERY" },
+    "zh": { "about": "关于", "explore": "探索项目", "back": "返回画廊" }
+  },
+  "projects": [
+    {
+      "title_en": "GUANG ZHOU",
+      "title_zh": "广州",
+      "cover": "./images\\广州\\DSC_1780-2.jpg",
+      "details": ["https://picsum.photos/seed/detail1_1/1280/720", "https://picsum.photos/seed/detail1_2/1280/720"]
+    },
+    {
+      "title_en": "SHANG HAI",
+      "title_zh": "上海",
+      "cover": "./images\\上海\\AIJ_5302.jpg",
+      "details": ["https://picsum.photos/seed/detail2_1/1280/720", "https://picsum.photos/seed/detail2_2/1280/720"]
+    },
+    {
+      "title_en": "SHEN ZHEN",
+      "title_zh": "深圳",
+      "cover": "./images\\深圳\\DSC_3713-2.jpg",
+      "details": ["https://picsum.photos/seed/detail3_1/1280/720", "https://picsum.photos/seed/detail3_2/1280/720"]
+    },
+    {
+      "title_en": "HONG KONG",
+      "title_zh": "香港",
+      "cover": "./images\\香港\\DSC_5883-1.jpg",
+      "details": ["./images\\香港\\DSC_6509-2.jpg", "./images\\香港\\DSC_7456-2.jpg"]
+    },
+    {
+      "title_en": "ZHANG JIA KAI",
+      "title_zh": "张家界",
+      "cover": "./images\\张家界\\PAIJ2557-已增强-降噪.jpg",
+      "details": ["https://picsum.photos/seed/detail5_1/1280/720", "https://picsum.photos/seed/detail5_2/1280/720"]
+    },
+    {
+      "title_en": "ZHU HAI",
+      "title_zh": "珠海",
+      "cover": "./images\\珠海\\DSC_1429-2.jpg",
+      "details": ["https://picsum.photos/seed/detail6_1/1280/720", "https://picsum.photos/seed/detail6_2/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 07",
+      "title_zh": "项目 07",
+      "cover": "https://picsum.photos/seed/cover7/800/450",
+      "details": ["https://picsum.photos/seed/detail7_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 08",
+      "title_zh": "项目 08",
+      "cover": "https://picsum.photos/seed/cover8/800/450",
+      "details": ["https://picsum.photos/seed/detail8_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 09",
+      "title_zh": "项目 09",
+      "cover": "https://picsum.photos/seed/cover9/800/450",
+      "details": ["https://picsum.photos/seed/detail9_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 10",
+      "title_zh": "项目 10",
+      "cover": "https://picsum.photos/seed/cover10/800/450",
+      "details": ["https://picsum.photos/seed/detail10_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 11",
+      "title_zh": "项目 11",
+      "cover": "https://picsum.photos/seed/cover11/800/450",
+      "details": ["https://picsum.photos/seed/detail11_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 12",
+      "title_zh": "项目 12",
+      "cover": "https://picsum.photos/seed/cover12/800/450",
+      "details": ["https://picsum.photos/seed/detail12_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 13",
+      "title_zh": "项目 13",
+      "cover": "https://picsum.photos/seed/cover13/800/450",
+      "details": ["https://picsum.photos/seed/detail13_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 14",
+      "title_zh": "项目 14",
+      "cover": "https://picsum.photos/seed/cover14/800/450",
+      "details": ["https://picsum.photos/seed/detail14_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 15",
+      "title_zh": "项目 15",
+      "cover": "https://picsum.photos/seed/cover15/800/450",
+      "details": ["https://picsum.photos/seed/detail15_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 16",
+      "title_zh": "项目 16",
+      "cover": "https://picsum.photos/seed/cover16/800/450",
+      "details": ["https://picsum.photos/seed/detail16_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 17",
+      "title_zh": "项目 17",
+      "cover": "https://picsum.photos/seed/cover17/800/450",
+      "details": ["https://picsum.photos/seed/detail17_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 18",
+      "title_zh": "项目 18",
+      "cover": "https://picsum.photos/seed/cover18/800/450",
+      "details": ["https://picsum.photos/seed/detail18_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 19",
+      "title_zh": "项目 19",
+      "cover": "https://picsum.photos/seed/cover19/800/450",
+      "details": ["https://picsum.photos/seed/detail19_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 20",
+      "title_zh": "项目 20",
+      "cover": "https://picsum.photos/seed/cover20/800/450",
+      "details": ["https://picsum.photos/seed/detail20_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 21",
+      "title_zh": "项目 21",
+      "cover": "https://picsum.photos/seed/cover21/800/450",
+      "details": ["https://picsum.photos/seed/detail21_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 22",
+      "title_zh": "项目 22",
+      "cover": "https://picsum.photos/seed/cover22/800/450",
+      "details": ["https://picsum.photos/seed/detail22_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 23",
+      "title_zh": "项目 23",
+      "cover": "https://picsum.photos/seed/cover23/800/450",
+      "details": ["https://picsum.photos/seed/detail23_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 24",
+      "title_zh": "项目 24",
+      "cover": "https://picsum.photos/seed/cover24/800/450",
+      "details": ["https://picsum.photos/seed/detail24_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 25",
+      "title_zh": "项目 25",
+      "cover": "https://picsum.photos/seed/cover25/800/450",
+      "details": ["https://picsum.photos/seed/detail25_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 26",
+      "title_zh": "项目 26",
+      "cover": "https://picsum.photos/seed/cover26/800/450",
+      "details": ["https://picsum.photos/seed/detail26_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 27",
+      "title_zh": "项目 27",
+      "cover": "https://picsum.photos/seed/cover27/800/450",
+      "details": ["https://picsum.photos/seed/detail27_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 28",
+      "title_zh": "项目 28",
+      "cover": "https://picsum.photos/seed/cover28/800/450",
+      "details": ["https://picsum.photos/seed/detail28_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 29",
+      "title_zh": "项目 29",
+      "cover": "https://picsum.photos/seed/cover29/800/450",
+      "details": ["https://picsum.photos/seed/detail29_1/1280/720"]
+    },
+    {
+      "title_en": "PROJECT 30",
+      "title_zh": "项目 30",
+      "cover": "https://picsum.photos/seed/cover30/800/450",
+      "details": ["https://picsum.photos/seed/detail30_1/1280/720"]
+    }
+  ]
+}
