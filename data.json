@@ -40,37 +40,37 @@
     {
       "title_en": "GUANG ZHOU",
       "title_zh": "广州",
-      "cover": "./images\\广州\\DSC_1780-2.jpg",
+      "cover": "./images/广州/DSC_1780-2.jpg",
       "details": ["https://picsum.photos/seed/detail1_1/1280/720", "https://picsum.photos/seed/detail1_2/1280/720"]
     },
     {
       "title_en": "SHANG HAI",
       "title_zh": "上海",
-      "cover": "./images\\上海\\AIJ_5302.jpg",
+      "cover": "./images/上海/AIJ_5302.jpg",
       "details": ["https://picsum.photos/seed/detail2_1/1280/720", "https://picsum.photos/seed/detail2_2/1280/720"]
     },
     {
       "title_en": "SHEN ZHEN",
       "title_zh": "深圳",
-      "cover": "./images\\深圳\\DSC_3713-2.jpg",
+      "cover": "./images/深圳/DSC_3713-2.jpg",
       "details": ["https://picsum.photos/seed/detail3_1/1280/720", "https://picsum.photos/seed/detail3_2/1280/720"]
     },
     {
       "title_en": "HONG KONG",
       "title_zh": "香港",
-      "cover": "./images\\香港\\DSC_5883-1.jpg",
-      "details": ["./images\\香港\\DSC_6509-2.jpg", "./images\\香港\\DSC_7456-2.jpg"]
+      "cover": "./images/香港/DSC_5883-1.jpg",
+      "details": ["./images/香港/DSC_6509-2.jpg", "./images/香港/DSC_7456-2.jpg"]
     },
     {
       "title_en": "ZHANG JIA KAI",
       "title_zh": "张家界",
-      "cover": "./images\\张家界\\PAIJ2557-已增强-降噪.jpg",
+      "cover": "./images/张家界/PAIJ2557-已增强-降噪.jpg",
       "details": ["https://picsum.photos/seed/detail5_1/1280/720", "https://picsum.photos/seed/detail5_2/1280/720"]
     },
     {
       "title_en": "ZHU HAI",
       "title_zh": "珠海",
-      "cover": "./images\\珠海\\DSC_1429-2.jpg",
+      "cover": "./images/珠海/DSC_1429-2.jpg",
       "details": ["https://picsum.photos/seed/detail6_1/1280/720", "https://picsum.photos/seed/detail6_2/1280/720"]
     },
     {
