@@ -210,7 +210,19 @@
             .nav-line { height: 35px; }
 
             .hero-text-style { font-size: 15vw; width: 95vw; }
+            
+            /* 修改为水平布局，适配左右滑动 */
+            #detail-images-container {
+                flex-direction: row;
+                width: 1000vw; /* 留出足够的宽度 */
+                height: 100vh;
+            }
+            .detail-image-wrapper {
+                width: 100vw;
+                height: 100vh;
+            }
             .detail-image-inner { width: 95vw; }
+            
             #detail-thumbnails-container { display: none; }
 
             .bottom-left { display: block !important; bottom: 20px; left: 20px; font-size: 9px; transform: scale(0.8); transform-origin: left bottom; }
@@ -346,7 +358,6 @@
         let currentDetailIndex = 0;
         const detailThumbnails = [];
         let isDetailScrolling = false; 
-        let cachedSlideHeight = window.innerHeight;
 
         document.addEventListener('mousemove', (e) => {
             gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
@@ -547,16 +558,29 @@
                 exploreBtn.style.pointerEvents = "none"; gsap.killTweensOf(exploreBtn); gsap.to(exploreBtn, { opacity: 0, duration: 0.3 });
             };
 
-            const switchDetailImage = (index, animate = true) => {
+            window.switchDetailImage = (index, animate = true) => {
                 const maxIdx = siteData.projects[currentExpandedIndex].details.length - 1;
                 if (index < 0 || index > maxIdx || (currentDetailIndex === index && animate)) return;
 
                 isDetailScrolling = true; currentDetailIndex = index;
-                detailThumbnails.forEach(t => t.classList.remove('active')); detailThumbnails[index].classList.add('active');
+                detailThumbnails.forEach(t => t.classList.remove('active')); 
+                if(detailThumbnails[index]) detailThumbnails[index].classList.add('active');
+                
                 if (popCurrEl) popCurrEl.innerText = index + 1;
 
-                if (animate) gsap.to(detailImagesContainer, { y: -cachedSlideHeight * index, duration: 1.2, ease: "expo.inOut", onComplete: () => { isDetailScrolling = false; } });
-                else { gsap.set(detailImagesContainer, { y: -cachedSlideHeight * index }); isDetailScrolling = false; }
+                const wrapperEl = document.querySelector('.detail-image-wrapper');
+                const slideHeight = wrapperEl ? wrapperEl.offsetHeight : window.innerHeight;
+                const slideWidth = window.innerWidth;
+
+                // 判断设备类型，设定横向(x)或纵向(y)滚动的目标位置
+                const targetProps = isMobile() ? { x: -slideWidth * index, y: 0 } : { y: -slideHeight * index, x: 0 };
+
+                if (animate) {
+                    gsap.to(detailImagesContainer, { ...targetProps, duration: 1.2, ease: "expo.inOut", onComplete: () => { isDetailScrolling = false; } });
+                } else { 
+                    gsap.set(detailImagesContainer, targetProps); 
+                    isDetailScrolling = false; 
+                }
             };
 
             const loadProjectDetails = () => {
@@ -580,13 +604,11 @@
                     thumbBox.appendChild(thumbImg); detailThumbnailsContainer.appendChild(thumbBox); detailThumbnails.push(thumbBox);
                     thumbBox.addEventListener('click', () => switchDetailImage(i));
                 });
-                currentDetailIndex = 0; 
-                switchDetailImage(0, false);
                 
-                setTimeout(() => {
-                    const wrapperEl = document.querySelector('.detail-image-wrapper');
-                    if (wrapperEl) cachedSlideHeight = wrapperEl.offsetHeight;
-                }, 0);
+                currentDetailIndex = 0; 
+                // 清理可能残留的内联 transform 属性，防止桌面端切移动端出现样式冲突
+                gsap.set(detailImagesContainer, { clearProps: "transform" });
+                window.switchDetailImage(0, false);
             };
 
             const openProjectDetail = () => {
@@ -633,9 +655,20 @@
                 if (isTransitioning) return;
                 if (detailPopup.classList.contains('active')) {
                     if (isDetailScrolling) return; 
-                    if (Math.abs(e.deltaY) > 25) { 
-                        if (e.deltaY > 0) switchDetailImage(currentDetailIndex + 1); 
-                        else if (e.deltaY < 0) switchDetailImage(currentDetailIndex - 1); 
+                    
+                    if (isMobile()) {
+                        // 移动端主要通过触摸，但防备外接设备或鼠标的情况
+                        if (Math.abs(e.deltaX) > 25 || Math.abs(e.deltaY) > 25) {
+                            const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+                            if (delta > 0) window.switchDetailImage(currentDetailIndex + 1); 
+                            else if (delta < 0) window.switchDetailImage(currentDetailIndex - 1); 
+                        }
+                    } else {
+                        // 桌面端正常的垂直滚动
+                        if (Math.abs(e.deltaY) > 25) { 
+                            if (e.deltaY > 0) window.switchDetailImage(currentDetailIndex + 1); 
+                            else if (e.deltaY < 0) window.switchDetailImage(currentDetailIndex - 1); 
+                        }
                     }
                     return;
                 }
@@ -665,9 +698,30 @@
                 const deltaX = touchStartX - touchX; const deltaY = touchStartY - touchY;
 
                 if (detailPopup.classList.contains('active')) {
-                    if (!isDetailScrolling && Math.abs(deltaY) > 30) {
-                        if (deltaY > 0) { switchDetailImage(currentDetailIndex + 1); touchStartY = touchY; } 
-                        else if (deltaY < 0) { switchDetailImage(currentDetailIndex - 1); touchStartY = touchY; }
+                    if (!isDetailScrolling) {
+                        if (isMobile()) {
+                            // 移动端：主要检测横向位移来判断左右滑动
+                            if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                                if (deltaX > 0) { 
+                                    window.switchDetailImage(currentDetailIndex + 1); 
+                                    touchStartX = touchX; // 重置防止多次触发
+                                } else if (deltaX < 0) { 
+                                    window.switchDetailImage(currentDetailIndex - 1); 
+                                    touchStartX = touchX; 
+                                }
+                            }
+                        } else {
+                            // 桌面端（例如触控板）：依然检测纵向位移
+                            if (Math.abs(deltaY) > 30) {
+                                if (deltaY > 0) { 
+                                    window.switchDetailImage(currentDetailIndex + 1); 
+                                    touchStartY = touchY; 
+                                } else if (deltaY < 0) { 
+                                    window.switchDetailImage(currentDetailIndex - 1); 
+                                    touchStartY = touchY; 
+                                }
+                            }
+                        }
                     }
                     return;
                 }
@@ -693,7 +747,6 @@
             const textureLoader = new THREE.TextureLoader(textureManager); 
             const loadedTextures = photoUrls.map(url => textureLoader.load(url));
 
-            // 已清除导致加粗的缩放动画
             textureManager.onProgress = (url, itemsLoaded) => {
                 if (hasStarted) return; 
                 const index = Math.min(itemsLoaded - 1, IMAGES_COUNT - 1);
@@ -709,7 +762,6 @@
             function forceStartIntro() {
                 if (hasStarted) return; hasStarted = true;
                 
-                // 终极绝杀：强行终止残留动画，并清空所有行内样式还原初始 1px 细线状态
                 gsap.killTweensOf(navLines); 
                 gsap.set(navLines, { clearProps: "all" });
                 
@@ -796,7 +848,7 @@
                 navLines.forEach((line, index) => {
                     line.addEventListener('click', () => {
                         if (isTransitioning) return;
-                        if(detailPopup.classList.contains('active')) { switchDetailImage(0); return; }
+                        if(detailPopup.classList.contains('active')) { window.switchDetailImage(0); return; }
                         if(isGalleryExpanded) { triggerExpand(index); } 
                         else {
                             let tp = -(startOffsetX + index * spacing);
@@ -917,9 +969,8 @@
                     renderer.setSize(window.innerWidth, window.innerHeight);
                     camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
                     if (detailPopup.classList.contains('active')) {
-                        const wrapperEl = document.querySelector('.detail-image-wrapper');
-                        if (wrapperEl) cachedSlideHeight = wrapperEl.offsetHeight;
-                        gsap.set(detailImagesContainer, { y: -cachedSlideHeight * currentDetailIndex });
+                        // 窗口大小改变时，调用非动画版的跳转，以自适应正确的宽高偏移
+                        window.switchDetailImage(currentDetailIndex, false);
                     }
                 });
             }
