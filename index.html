@@ -7,10 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+SC:wght@900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+SC:wght@300;400;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
@@ -58,13 +55,16 @@
         }
 
         #mobile-swipe-indicator { display: none !important; }
+        @media (min-width: 769px) {
+            #mobile-swipe-indicator { display: none !important; opacity: 0 !important; visibility: hidden !important; }
+        }
 
         .corner-element { position: absolute; font-size: 10px; letter-spacing: 0.1em; line-height: 1.5; opacity: 0; pointer-events: auto; }
         
         .top-left { top: 40px; left: 40px; z-index: 1005; }
-        .top-left .logo { font-family: "Anton","Impact", "Arial Narrow", "PingFang SC", sans-serif; font-size: 28px; font-weight: 500; letter-spacing: -0.02em; transform: scaleY(1.2); display: inline-block; transform-origin: left bottom; }
+        .top-left .logo { font-family: "Impact", "Arial Narrow", "PingFang SC", sans-serif; font-size: 28px; font-weight: 500; letter-spacing: -0.02em; transform: scaleY(1.2); display: inline-block; transform-origin: left bottom; }
         
-        .top-right { top: 40px; right: 40px; text-align: right; display: flex; gap: 20px; transition: opacity 0.4s ease; z-index: 1005; }
+        .top-right { top: 40px; right: 40px; text-align: right; display: flex; align-items: center; gap: 20px; transition: opacity 0.4s ease; z-index: 1005; }
         
         .bottom-left { bottom: 40px; left: 40px; color: var(--accent); }
         .bottom-right { bottom: 40px; right: 40px; text-align: right; display: flex; flex-direction: column; gap: 4px; }
@@ -132,7 +132,7 @@
 
         .profile-name, .profile-title, .profile-desc, .skill-tag span, .tl-date, .tl-title, .tl-comp, #nav-about { will-change: opacity, transform; }
 
-        .profile-name { font-family: "Anton", "Impact", "Noto Sans SC", sans-serif; font-size: 52px; letter-spacing: 0.05em; color: var(--highlight); margin: 0 0 10px 0; line-height: 1; display: block;}
+        .profile-name { font-family: "Impact", "Noto Sans SC", sans-serif; font-size: 52px; letter-spacing: 0.05em; color: var(--highlight); margin: 0 0 10px 0; line-height: 1; display: block;}
         .profile-title { font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin: 0 0 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
         .profile-desc { font-size: 12px; line-height: 1.6; color: #aaaaaa; margin: 0 0 30px 0; max-width: 95%; text-transform: none; letter-spacing: 0.02em; }
         
@@ -157,12 +157,8 @@
 
         #hover-title-small { position: fixed; top: 0; left: 0; font-size: 11px; letter-spacing: 0.15em; line-height: 1.6; color: var(--text); opacity: 0; pointer-events: none; text-align: center; z-index: 20; will-change: transform, opacity, width; transition: opacity 0.2s ease-out; text-shadow: 0px 2px 8px rgba(0,0,0,0.8); }
 
-        .hero-text-style { position: fixed; top: 0; left: 0; font-family: "Anton","Impact", "Noto Sans SC", "PingFang SC", sans-serif; font-weight: 900; font-size: clamp(50px, 12vw, 180px); letter-spacing: 0.02em; color: var(--highlight); line-height: 0.8; text-shadow: 0px 15px 50px rgba(0,0,0,0.9); width: 85vw; text-align: center; opacity: 0; pointer-events: none; z-index: 45; will-change: transform, opacity, filter; transition: text-shadow 1.2s ease; }
-        
-        .hero-text-style.light-mode { 
-            color: rgba(216, 180, 160, 0.98);
-            text-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.05); 
-        }
+        .hero-text-style { position: fixed; top: 0; left: 0; font-family: "Impact", "Noto Sans SC", "PingFang SC", sans-serif; font-weight: 900; font-size: clamp(50px, 12vw, 180px); letter-spacing: 0.02em; color: var(--highlight); line-height: 0.8; text-shadow: 0px 15px 50px rgba(0,0,0,0.9); width: 85vw; text-align: center; opacity: 0; pointer-events: none; z-index: 45; will-change: transform, opacity, filter; transition: text-shadow 1.2s ease; }
+        .hero-text-style.light-mode { color: rgba(216, 180, 160, 0.98); text-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.05); }
 
         #explore-btn { position: fixed; left: 50%; bottom: 60px; transform: translateX(-50%); font-size: 11px; letter-spacing: 0.2em; border-bottom: 1px solid var(--text); padding-bottom: 4px; color: var(--text); opacity: 0; pointer-events: none; will-change: opacity; cursor: none; z-index: 30; }
 
@@ -188,25 +184,118 @@
         .detail-thumbnail-box.active { border-color: #111111; width: 80px; opacity: 1; }
         .detail-thumbnail-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Mobile Adjustments */
+        /* =========================================
+           ABOUT 覆层 (极简全白纯文本 + 独立内容)
+        ========================================= */
+        #about-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(12, 12, 12, 0.85); 
+            backdrop-filter: blur(25px) saturate(120%); -webkit-backdrop-filter: blur(25px) saturate(120%);
+            z-index: 2000; opacity: 0; visibility: hidden; pointer-events: none;
+            display: flex; box-sizing: border-box; color: #fff;
+        }
+        #about-overlay.active { pointer-events: auto; }
+
+        .close-icon { width: 24px; height: 24px; position: relative; display: flex; align-items: center; justify-content: center; cursor: none; margin-left: 10px; }
+        .close-line { position: absolute; width: 100%; height: 1px; background-color: var(--text); transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s; }
+        .close-line.line-1 { transform: rotate(45deg); }
+        .close-line.line-2 { transform: rotate(-45deg); }
+        .close-icon:hover .close-line { background-color: var(--highlight); }
+        .close-icon:hover .close-line.line-1 { transform: rotate(135deg); }
+        .close-icon:hover .close-line.line-2 { transform: rotate(45deg); }
+
+        .about-container { width: 100%; height: 100%; display: flex; padding: 140px 60px 60px 8vw; box-sizing: border-box; }
+        
+        .about-left-col { width: 35%; display: flex; flex-direction: column; overflow-y: auto; padding-right: 40px; }
+        .about-left-col::-webkit-scrollbar { display: none; }
+        
+        .about-ext-title { font-size: 13px; letter-spacing: 0.15em; color: #ffffff; margin: 0 0 25px 0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; font-weight: bold; }
+        .about-ext-desc { font-size: 13px; line-height: 2.2; color: #ffffff; margin: 0 0 60px 0; text-transform: none; letter-spacing: 0.04em; font-weight: 300; white-space: pre-line; text-align: justify; opacity: 0.85; }
+        
+        .about-exp-label { font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+        
+        .about-exp-list { display: flex; flex-direction: column; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 15px;}
+        .about-pt-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); transition: background 0.3s ease; }
+        .about-pt-item:hover { background: rgba(255,255,255,0.04); padding-left: 10px; padding-right: 10px; margin-left: -10px; margin-right: -10px;}
+        .about-pt-left { display: flex; flex-direction: column; gap: 8px; }
+        .about-pt-role { font-size: 15px; font-weight: bold; letter-spacing: 0.05em; color: #ffffff; }
+        .about-pt-comp { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; font-weight: 300; }
+        .about-pt-date { font-size: 12px; color: #ffffff; letter-spacing: 0.1em; font-weight: bold; text-align: right; opacity: 0.9; }
+
+        .about-right-col { width: 65%; display: flex; flex-direction: column; position: relative; }
+        
+        .about-contact-list { position: absolute; top: 0; right: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .contact-row { font-size: 11px; letter-spacing: 0.15em; display: flex; gap: 15px; align-items: center; }
+        .contact-label { color: rgba(255,255,255,0.4); }
+
+        .about-video-wrapper { 
+            position: absolute;
+            top: 0;
+            left: 13vw; 
+            width: 32vw; 
+            max-width: 550px; 
+            aspect-ratio: 16/9; 
+            overflow: hidden; 
+            z-index: 10; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8); 
+            background: #111;
+        }
+        .about-video-wrapper video { 
+            width: 100%; height: 100%; object-fit: cover; 
+            filter: brightness(0.85) contrast(1.1); transition: filter 0.5s ease; 
+        }
+        .about-video-wrapper:hover video { filter: brightness(1.1) contrast(1.1); }
+
+        .huge-name-wrapper { 
+            position: absolute; 
+            right: -1vw; 
+            bottom: -2vw; 
+            z-index: 5; 
+            pointer-events: none; 
+        }
+        .huge-name { 
+            font-family: 'Bebas Neue', 'Anton', sans-serif; 
+            font-size: 26vw; 
+            line-height: 0.75; 
+            letter-spacing: 0.01em;
+            transform: scaleY(1.4); 
+            transform-origin: bottom;
+            background: linear-gradient(110deg, #ffffff 0%, #d8b4a0 15%, #7a6e67 30%, #e8d0c3 45%, #4a4a4a 60%, #bfa090 75%, #ffffff 90%, #d8b4a0 100%);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: flowGradient 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes flowGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .anim-stagger, .huge-name, .contact-row, .anim-video { will-change: transform, opacity; }
+
+        /* =========================================
+           移动端 (Mobile) 适配优化 
+        ========================================= */
         @media (max-width: 768px) {
             .cursor { display: none !important; }
             body, html { cursor: auto; }
             
             #hover-title-small { display: none !important; }
 
-            #profile-section { width: 90vw; padding-left: 5vw; flex-direction: column; justify-content: center; gap: 20px; }
+            #profile-section { width: 90vw; padding-left: 5vw; flex-direction: column; justify-content: center; gap: 15px; }
             .profile-name { font-size: 36px; }
             .profile-title { font-size: 10px; margin-bottom: 10px; }
-            .profile-desc { font-size: 11px; max-width: 100%; margin-bottom: 15px; }
-            .profile-right { display: none; } 
+            .profile-desc { font-size: 11px; max-width: 100%; margin-bottom: 10px; }
+            
+            .profile-right { display: none !important; } 
 
             .top-left { top: 20px; left: 20px; } 
             .top-left .logo { font-size: 16px; } 
             
-            .top-right { top: 20px; right: 20px; display: flex !important; flex-direction: column; align-items: flex-end; gap: 10px; } 
-            #nav-about { order: 1; font-size: 9px; transform: scale(0.9); transform-origin: right center; margin: 0 !important; }
-            #lang-toggle { order: 2; font-size: 9px; transform: scale(0.9); transform-origin: right center; margin: 0 !important; }
+            .top-right { top: 20px; right: 20px; display: flex !important; flex-direction: row; align-items: center; gap: 15px; } 
+            #nav-about, #lang-toggle { font-size: 9px; }
 
             #nav-container-wrapper { transform: translate(-50%, -50%); width: 100vw; }
             #nav-lines-container { gap: 5px; } 
@@ -214,40 +303,44 @@
 
             .hero-text-style { font-size: 15vw; width: 95vw; }
             
-            /* 修改为水平布局，适配左右滑动 */
-            #detail-images-container {
-                flex-direction: row;
-                width: 1000vw; /* 留出足够的宽度 */
-                height: 100vh;
-            }
-            .detail-image-wrapper {
-                width: 100vw;
-                height: 100vh;
-            }
+            #detail-images-container { flex-direction: row; width: 1000vw; height: 100vh; }
+            .detail-image-wrapper { width: 100vw; height: 100vh; }
             .detail-image-inner { width: 95vw; }
-            
             #detail-thumbnails-container { display: none; }
 
             .bottom-left { display: block !important; bottom: 20px; left: 20px; font-size: 9px; transform: scale(0.8); transform-origin: left bottom; }
             .bottom-right { bottom: 20px; right: 20px; flex-direction: column; gap: 6px; font-size: 9px; transform: scale(0.8); transform-origin: right bottom; }
 
-            #explore-btn, #detail-close-btn { 
-                top: auto !important; bottom: 65px !important; 
-                left: 50% !important; transform: translateX(-50%) !important; 
-            }
-
-            #detail-counter { 
-                display: block; font-size: 10px; top: auto !important; 
-                bottom: 125px !important; left: 50% !important; 
-                transform: translateX(-50%) !important; 
-            }
+            #explore-btn, #detail-close-btn { top: auto !important; bottom: 65px !important; left: 50% !important; transform: translateX(-50%) !important; }
+            #detail-counter { display: block; font-size: 10px; top: auto !important; bottom: 125px !important; left: 50% !important; transform: translateX(-50%) !important; }
 
             #mobile-swipe-indicator { display: flex !important; align-items: center; gap: 8px; position: absolute; top: 50%; right: 20px; transform: translateY(-50%); z-index: 25; pointer-events: none; color: rgba(255, 255, 255, 0.6); opacity: 0; transition: opacity 0.8s ease-out; }
             #mobile-swipe-indicator.show { opacity: 1; }
             .swipe-text { font-size: 9px; letter-spacing: 0.2em; font-weight: 300; writing-mode: vertical-lr; transform: rotate(180deg); }
             .swipe-arrow { width: 30px; height: 10px; animation: arrowPulse 2s cubic-bezier(0.19, 1, 0.22, 1) infinite; }
             @keyframes arrowPulse { 0% { transform: translateX(0); opacity: 0.3; } 50% { transform: translateX(8px); opacity: 1; } 100% { transform: translateX(0); opacity: 0.3; } }
-            #mobile-swipe-indicator.hidden-forever { opacity: 0 !important; }
+            #mobile-swipe-indicator.hidden-forever { opacity: 0 !important; display: none !important;}
+
+            .about-container { flex-direction: column; padding: 100px 20px 120px 20px; overflow-y: auto; }
+            .about-left-col { width: 100%; padding-right: 0; padding-bottom: 40px; }
+            .about-right-col { width: 100%; }
+            .about-contact-list { position: relative; align-items: flex-start; margin-top: 0; margin-bottom: 30px; }
+            
+            .about-video-wrapper { position: relative; top: auto; left: auto; width: 100%; margin-bottom: 30px; max-width: none; }
+            .huge-name-wrapper {
+                position: fixed; 
+                right: 20px;     
+                bottom: 20px;    
+                margin: 0;
+                z-index: 5;
+                pointer-events: none; 
+            } 
+        
+            .huge-name {
+                font-size: 15vw; 
+                transform: scaleY(1.4);
+                transform-origin: bottom right; 
+            }
         }
     </style>
 </head>
@@ -270,13 +363,11 @@
                 <h1 class="profile-name">NAME</h1>
                 <p id="profile-title" class="profile-title">TITLE</p>
                 <p id="profile-desc" class="profile-desc">DESC</p>
-                <div class="profile-skills">
-                    </div>
+                <div class="profile-skills"></div>
             </div>
             
             <div class="profile-right">
-                <div class="timeline-container">
-                    </div>
+                <div class="timeline-container" id="main-timeline-container"></div>
             </div>
         </div>
 
@@ -300,6 +391,43 @@
             <a href="#" class="underline-a hover-target">INSTAGRAM</a>
             <a href="#" class="underline-a hover-target">TWITTER</a>
         </div>
+    </div>
+
+    <div id="about-overlay">
+        <div class="corner-element top-left"><span class="logo hover-target">PORTFOLIO</span></div>
+        <div class="corner-element top-right">
+            <div id="about-close-btn" class="close-icon hover-target">
+                <span class="close-line line-1"></span>
+                <span class="close-line line-2"></span>
+            </div>
+        </div>
+
+        <div class="about-container">
+            <div class="about-left-col">
+                <h2 id="about-title-ext" class="about-ext-title anim-stagger"></h2>
+                <p id="about-desc-ext" class="about-ext-desc anim-stagger"></p>
+                <div id="about-exp-label" class="about-exp-label anim-stagger"></div>
+                
+                <div class="about-exp-list" id="about-exp-list"></div>
+            </div>
+            
+            <div class="about-right-col">
+                <div class="about-video-wrapper anim-video">
+                    <video autoplay loop muted playsinline src=""></video>
+                </div>
+
+                <div class="about-contact-list anim-stagger">
+                    <div class="contact-row"><span class="contact-label">EMAIL</span> <a href="#" id="about-email" class="hover-target underline-a"></a></div>
+                    <div class="contact-row"><span class="contact-label">INSTAGRAM</span> <a href="#" id="about-ig" class="hover-target underline-a"></a></div>
+                    <div class="contact-row"><span class="contact-label">TWITTER</span> <a href="#" id="about-tw" class="hover-target underline-a"></a></div>
+                </div>
+
+                <div class="huge-name-wrapper">
+                    <div class="huge-name">JUNJIE</div>
+                </div>
+            </div>
+        </div>
+        <div class="corner-element bottom-left">LIU JUNJIE<br>ALL RIGHTS RESERVED 2026</div>
     </div>
 
     <div id="detail-bg-overlay"></div>
@@ -340,7 +468,12 @@
         const detailImagesContainer = document.getElementById('detail-images-container');
         const detailThumbnailsContainer = document.getElementById('detail-thumbnails-container');
         const detailCloseBtn = document.getElementById('detail-close-btn');
+        
         const langToggleBtn = document.getElementById('lang-toggle');
+        const navAboutBtn = document.getElementById('nav-about');
+        const aboutOverlay = document.getElementById('about-overlay');
+        const aboutCloseBtn = document.getElementById('about-close-btn');
+
         const topRightContainer = document.querySelector('.top-right'); 
         const topLeftContainer = document.querySelector('.top-left'); 
         
@@ -372,6 +505,74 @@
         document.addEventListener('mouseover', (e) => { if (e.target.closest('.hover-target')) isHoveringDOM = true; });
         document.addEventListener('mouseout', (e) => { if (e.target.closest('.hover-target')) isHoveringDOM = false; });
 
+        window.addEventListener('wheel', (e) => {
+            if (isTransitioning || aboutOverlay.classList.contains('active')) return;
+            if (detailPopup.classList.contains('active')) {
+                if (isDetailScrolling) return; 
+                if (isMobile()) {
+                    if (Math.abs(e.deltaX) > 25 || Math.abs(e.deltaY) > 25) {
+                        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+                        if (delta > 0) window.switchDetailImage(currentDetailIndex + 1); 
+                        else if (delta < 0) window.switchDetailImage(currentDetailIndex - 1); 
+                    }
+                } else {
+                    if (Math.abs(e.deltaY) > 25) { 
+                        if (e.deltaY > 0) window.switchDetailImage(currentDetailIndex + 1); 
+                        else if (e.deltaY < 0) window.switchDetailImage(currentDetailIndex - 1); 
+                    }
+                }
+                return;
+            }
+            if (isGalleryExpanded) {
+                if (Math.abs(e.deltaY) > 1 || Math.abs(e.deltaX) > 1) window.closeExpandedView();
+                return; 
+            }
+            physics.velocity -= (e.deltaY + e.deltaX) * 0.0012; 
+        }, { passive: true });
+
+        let touchStartX = 0; let touchStartY = 0;
+        window.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+            mouse.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+            isMouseMoving = true; 
+            const swipeIndicator = document.getElementById('mobile-swipe-indicator');
+            if (swipeIndicator && !swipeIndicator.classList.contains('hidden-forever')) {
+                swipeIndicator.classList.add('hidden-forever'); gsap.killTweensOf(swipeIndicator); gsap.to(swipeIndicator, { opacity: 0, duration: 0.3 });
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (aboutOverlay.classList.contains('active')) return; 
+            if (e.cancelable) e.preventDefault();
+            if (isTransitioning) return;
+            const touchX = e.touches[0].clientX; const touchY = e.touches[0].clientY;
+            const deltaX = touchStartX - touchX; const deltaY = touchStartY - touchY;
+
+            if (detailPopup.classList.contains('active')) {
+                if (!isDetailScrolling) {
+                    if (isMobile()) {
+                        if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                            if (deltaX > 0) { window.switchDetailImage(currentDetailIndex + 1); touchStartX = touchX; } 
+                            else if (deltaX < 0) { window.switchDetailImage(currentDetailIndex - 1); touchStartX = touchX; }
+                        }
+                    } else {
+                        if (Math.abs(deltaY) > 30) {
+                            if (deltaY > 0) { window.switchDetailImage(currentDetailIndex + 1); touchStartY = touchY; } 
+                            else if (deltaY < 0) { window.switchDetailImage(currentDetailIndex - 1); touchStartY = touchY; }
+                        }
+                    }
+                }
+                return;
+            }
+            if (isGalleryExpanded) {
+                if (Math.abs(deltaY) > 40 || Math.abs(deltaX) > 40) window.closeExpandedView();
+                return; 
+            }
+            physics.velocity -= deltaX * 0.0035; 
+            touchStartX = touchX; touchStartY = touchY;
+        }, { passive: false }); 
+
         window.onload = async () => {
             try {
                 const response = await fetch('./data.json');
@@ -388,9 +589,21 @@
                     links[1].href = siteData.profile.socials.instagram;
                     links[2].href = siteData.profile.socials.twitter;
                 }
+                
+                // 動態填充 About 頁面中獨立的不參與翻譯的英文內容
+                document.getElementById('about-title-ext').innerText = siteData.profile.about.title;
+                document.getElementById('about-desc-ext').innerText = siteData.profile.about.desc;
+                document.getElementById('about-exp-label').innerText = siteData.profile.about.expLabel;
+                document.querySelector('.about-video-wrapper video').src = siteData.profile.about.video;
 
-                generateProfileDOM(siteData.profile.en);
+                document.getElementById('about-email').href = `mailto:${siteData.profile.socials.email}`;
+                document.getElementById('about-email').innerText = siteData.profile.socials.email;
+                document.getElementById('about-ig').href = siteData.profile.socials.instagram;
+                document.getElementById('about-ig').innerText = "@" + siteData.profile.socials.instagram.split('/').pop();
+                document.getElementById('about-tw').href = siteData.profile.socials.twitter;
+                document.getElementById('about-tw').innerText = "@" + siteData.profile.socials.twitter.split('/').pop();
 
+                generateProfileDOM(siteData.profile);
                 applyLanguage(currentLang);
                 startWebGLApp();
 
@@ -400,17 +613,32 @@
             }
         };
 
-        function generateProfileDOM(dataRef) {
+        function generateProfileDOM(profileDataAll) {
             const skillsContainer = document.querySelector('.profile-skills');
             skillsContainer.innerHTML = '';
-            dataRef.skills.forEach((_, i) => {
+            profileDataAll.en.skills.forEach((_, i) => {
                 skillsContainer.innerHTML += `<div class="skill-tag hover-target"><svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 1.5-.5 2.5-2 2.5h-2c-.828 0-1.5.672-1.5 1.5 0 .337.112.653.303.905.158.243.25.534.25.845 0 1.243-1.007 2.25-2.25 2.25h-2.803zm-4.5-9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm3-3a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm4 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm3 3a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg><span id="skill-${i}-text"></span></div>`;
             });
 
-            const timelineContainer = document.querySelector('.timeline-container');
-            timelineContainer.innerHTML = '';
-            dataRef.timeline.forEach((_, i) => {
-                timelineContainer.innerHTML += `<div class="timeline-item hover-target"><div class="timeline-dot"></div><div class="timeline-card"><div id="tl-date-${i}" class="tl-date"></div><div id="tl-role-${i}" class="tl-title"></div><div id="tl-comp-${i}" class="tl-comp"></div></div></div>`;
+            // 首页原始时间线
+            const mainTimelineContainer = document.getElementById('main-timeline-container');
+            mainTimelineContainer.innerHTML = '';
+            profileDataAll.en.timeline.forEach((_, i) => {
+                mainTimelineContainer.innerHTML += `<div class="timeline-item hover-target"><div class="timeline-dot"></div><div class="timeline-card"><div id="tl-date-${i}" class="tl-date"></div><div id="tl-role-${i}" class="tl-title"></div><div id="tl-comp-${i}" class="tl-comp"></div></div></div>`;
+            });
+
+            // About 页面英文独立结构
+            const aboutExpList = document.getElementById('about-exp-list');
+            aboutExpList.innerHTML = '';
+            profileDataAll.en.timeline.forEach((item) => {
+                aboutExpList.innerHTML += `
+                <div class="about-pt-item anim-stagger">
+                    <div class="about-pt-left">
+                        <div class="about-pt-role">${item.role}</div>
+                        <div class="about-pt-comp">${item.comp}</div>
+                    </div>
+                    <div class="about-pt-date">${item.date}</div>
+                </div>`;
             });
         }
 
@@ -421,7 +649,8 @@
 
             document.querySelector('.profile-name').innerText = profileData.name;
             langToggleBtn.innerText = lang === 'en' ? '简 / EN' : 'EN / 简';
-            document.getElementById('nav-about').innerText = uiData.about;
+            
+            navAboutBtn.innerText = uiData.about;
             exploreBtn.innerText = uiData.explore;
             detailCloseBtn.innerText = uiData.back;
             document.getElementById('profile-title').innerText = profileData.title;
@@ -431,10 +660,11 @@
                 const skillEl = document.getElementById(`skill-${i}-text`);
                 if (skillEl) skillEl.innerText = skill;
             });
+            
             profileData.timeline.forEach((item, i) => {
-                const dateEl = document.getElementById(`tl-date-${i}`);
-                if (dateEl) {
-                    dateEl.innerText = item.date;
+                const tlDate = document.getElementById(`tl-date-${i}`);
+                if (tlDate) {
+                    tlDate.innerText = item.date;
                     document.getElementById(`tl-role-${i}`).innerText = item.role;
                     document.getElementById(`tl-comp-${i}`).innerText = item.comp;
                 }
@@ -453,304 +683,75 @@
             isTransitioning = true; 
 
             const textsToAnimate = [
-                document.querySelector('.profile-name'),
-                document.getElementById('profile-title'),
-                document.getElementById('profile-desc'),
-                document.getElementById('nav-about'),
+                document.querySelector('.profile-name'), document.getElementById('profile-title'), document.getElementById('profile-desc'), navAboutBtn,
                 ...document.querySelectorAll('.skill-tag span'),
-                ...document.querySelectorAll('.tl-date'),
-                ...document.querySelectorAll('.tl-title'),
-                ...document.querySelectorAll('.tl-comp')
+                ...document.querySelectorAll('.tl-date'), ...document.querySelectorAll('.tl-title'), ...document.querySelectorAll('.tl-comp')
             ].filter(el => el);
 
             gsap.to(langToggleBtn, { opacity: 0, y: -12, duration: 0.25, ease: "power2.in" });
 
             gsap.to(textsToAnimate, {
-                opacity: 0, y: -5, duration: 0.25, stagger: 0.01, ease: "power2.in",
+                opacity: 0, y: -5, duration: 0.25, stagger: 0.005, ease: "power2.in",
                 onComplete: () => {
                     applyLanguage(currentLang === 'en' ? 'zh' : 'en');
-                    gsap.fromTo(langToggleBtn, 
-                        { opacity: 0, y: 12 }, 
-                        { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.5)", clearProps: "transform" }
-                    );
-                    gsap.fromTo(textsToAnimate,
-                        { opacity: 0, y: 5 },
-                        { opacity: 1, y: 0, duration: 0.4, stagger: 0.01, ease: "power2.out",
-                          onComplete: () => { gsap.set(textsToAnimate, { clearProps: "y" }); isTransitioning = false; }
-                        }
-                    );
+                    gsap.fromTo(langToggleBtn, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.5)", clearProps: "transform" });
+                    gsap.fromTo(textsToAnimate, { opacity: 0, y: 5 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.005, ease: "power2.out", onComplete: () => { gsap.set(textsToAnimate, { clearProps: "y" }); isTransitioning = false; } });
                 }
             });
         });
+
+        navAboutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if(isTransitioning) return;
+            isTransitioning = true;
+            aboutOverlay.classList.add('active');
+
+            gsap.to(physics, { velocity: 0, duration: 0.1 });
+            
+            const tl = gsap.timeline({ onComplete: () => { isTransitioning = false; } });
+            
+            tl.to(aboutOverlay, { opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
+              .fromTo('.anim-stagger', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.08, ease: "power3.out", clearProps: "transform" }, "-=0.4")
+              .fromTo('.contact-row', { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out", clearProps: "transform" }, "-=0.6")
+              .fromTo('.anim-video', { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0, ease: "power3.out", clearProps: "transform" }, "-=0.8")
+              .fromTo('.huge-name', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "expo.out", clearProps: "transform" }, "-=0.8");
+        });
+
+        aboutCloseBtn.addEventListener('click', () => {
+            if(isTransitioning) return;
+            isTransitioning = true;
+            
+            const tl = gsap.timeline({ onComplete: () => { aboutOverlay.classList.remove('active'); isTransitioning = false; } });
+            
+            tl.to(['.huge-name', '.anim-video', '.contact-row', '.anim-stagger'], { y: -20, opacity: 0, duration: 0.5, stagger: 0.02, ease: "power2.in" })
+              .to(aboutOverlay, { opacity: 0, autoAlpha: 0, duration: 0.6, ease: "power2.inOut" }, "-=0.2");
+        });
+
 
         function startWebGLApp() {
             let isIntroReady = false;
             let hasStarted = false; 
 
-            const triggerExpand = (meshIndex) => {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                
-                if (currentActiveIndex !== -1 && currentActiveIndex !== meshIndex) {
-                    if (navLines[currentActiveIndex]) navLines[currentActiveIndex].classList.remove('active');
-                    navLines[meshIndex].classList.add('active');
-                }
-                
-                if(isGalleryExpanded && currentExpandedIndex !== meshIndex) {
-                    const oldMesh = meshList[currentExpandedIndex];
-                    const ghostText = heroTitleLargeEl.cloneNode(true);
-                    heroTitleLargeEl.parentNode.appendChild(ghostText);
-                    gsap.to(ghostText, { opacity: 0, filter: "blur(8px)", duration: 0.8, ease: "power2.out", onComplete: () => ghostText.remove() });
-                    gsap.to(oldMesh.scale, { x: 1, y: 1, duration: 1.0, ease: "power3.inOut" });
-                    gsap.to(oldMesh.position, { z: 0, duration: 1.0, ease: "power3.inOut" });
-                    gsap.to(oldMesh.userData.expandState, { progress: 0, duration: 1.0, ease: "power3.inOut" });
-                }
-                
-                isGalleryExpanded = true; currentExpandedIndex = meshIndex; currentActiveIndex = meshIndex; 
-
-                gsap.to(topRightContainer, { opacity: 0, pointerEvents: 'none', duration: 0.4 });
-
-                let targetScroll = -(startOffsetX + meshIndex * spacing);
-                gsap.to(physics, { target: targetScroll, current: targetScroll, velocity: 0, duration: 1.0, ease: "power3.inOut" });
-
-                const targetMesh = meshList[meshIndex];
-                gsap.to(targetMesh.scale, { x: expandedWidth / imgWidth, y: expandedHeight / imgHeight, duration: 1.4, ease: "power4.inOut" });
-                gsap.to(targetMesh.position, { z: 6.5, duration: 1.4, ease: "power4.inOut" });
-                gsap.to(targetMesh.userData.expandState, { progress: 1, duration: 1.4, ease: "power4.inOut", onComplete: () => { isTransitioning = false; } });
-
-                document.getElementById('nav-curr').innerText = String(meshIndex + 1).padStart(2, '0');
-                gsap.fromTo(document.getElementById('nav-curr'), { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, delay: 0.3, ease: "back.out(2)" });
-                gsap.to(document.getElementById('nav-counter'), { opacity: 1, duration: 0.6, delay: 0.4 });
-                gsap.to(document.getElementById('nav-lines-container'), { x: ((IMAGES_COUNT - 1) / 2 - meshIndex) * 7, duration: 1.0, ease: "power3.inOut" });
-
-                navLines.forEach((line, i) => {
-                    line.style.pointerEvents = "auto";
-                    if(i < meshIndex) gsap.to(line, { x: -45, opacity: 1, duration: 0.8, ease: "expo.inOut" });
-                    else if(i > meshIndex) gsap.to(line, { x: 45, opacity: 1, duration: 0.8, ease: "expo.inOut" });
-                    else { gsap.to(line, { opacity: 0, duration: 0.3 }); line.style.pointerEvents = "none"; }
-                });
-
-                exploreBtn.style.pointerEvents = "auto";
-                gsap.killTweensOf(exploreBtn);
-                gsap.to(exploreBtn, { opacity: 1, duration: 0.8, delay: 0.6, onComplete: () => {
-                    gsap.to(exploreBtn, { opacity: 0.4, duration: 1.2, yoyo: true, repeat: -1, ease: "sine.inOut" });
-                }});
-            };
-
-            const closeExpandedView = () => {
-                if (!isGalleryExpanded || isTransitioning) return;
-                isTransitioning = true; isGalleryExpanded = false;
-                gsap.to(topRightContainer, { opacity: 1, pointerEvents: 'auto', duration: 0.8, delay: 0.4 });
-
-                if (heroTitleLargeEl.style.opacity > 0) {
-                    const ghostText = heroTitleLargeEl.cloneNode(true); heroTitleLargeEl.parentNode.appendChild(ghostText);
-                    gsap.set(heroTitleLargeEl, { opacity: 0 });
-                    gsap.to(ghostText, { opacity: 0, filter: "blur(12px)", duration: 0.8, ease: "power2.out", onComplete: () => ghostText.remove() });
-                }
-
-                const oldMesh = meshList[currentExpandedIndex];
-                gsap.to(oldMesh.scale, { x: 1, y: 1, duration: 1.2, ease: "power3.inOut" });
-                gsap.to(oldMesh.position, { z: 0, duration: 1.2, ease: "power3.inOut" });
-                gsap.to(oldMesh.userData.expandState, { progress: 0, duration: 1.2, ease: "power3.inOut", onComplete: () => { isTransitioning = false; } });
-                
-                gsap.to(document.getElementById('nav-counter'), { opacity: 0, duration: 0.4 });
-                gsap.to(document.getElementById('nav-lines-container'), { x: 0, duration: 0.8, ease: "power3.inOut" });
-
-                navLines.forEach((line) => { line.style.pointerEvents = "auto"; gsap.to(line, { x: 0, opacity: 1, duration: 0.8, ease: "expo.inOut" }); });
-                
-                exploreBtn.style.pointerEvents = "none"; gsap.killTweensOf(exploreBtn); gsap.to(exploreBtn, { opacity: 0, duration: 0.3 });
-            };
-
-            window.switchDetailImage = (index, animate = true) => {
-                const maxIdx = siteData.projects[currentExpandedIndex].details.length - 1;
-                if (index < 0 || index > maxIdx || (currentDetailIndex === index && animate)) return;
-
-                isDetailScrolling = true; currentDetailIndex = index;
-                detailThumbnails.forEach(t => t.classList.remove('active')); 
-                if(detailThumbnails[index]) detailThumbnails[index].classList.add('active');
-                
-                if (popCurrEl) popCurrEl.innerText = index + 1;
-
-                const wrapperEl = document.querySelector('.detail-image-wrapper');
-                const slideHeight = wrapperEl ? wrapperEl.offsetHeight : window.innerHeight;
-                const slideWidth = window.innerWidth;
-
-                // 判断设备类型，设定横向(x)或纵向(y)滚动的目标位置
-                const targetProps = isMobile() ? { x: -slideWidth * index, y: 0 } : { y: -slideHeight * index, x: 0 };
-
-                if (animate) {
-                    gsap.to(detailImagesContainer, { ...targetProps, duration: 1.2, ease: "expo.inOut", onComplete: () => { isDetailScrolling = false; } });
-                } else { 
-                    gsap.set(detailImagesContainer, targetProps); 
-                    isDetailScrolling = false; 
-                }
-            };
-
-            const loadProjectDetails = () => {
-                detailImagesContainer.innerHTML = ''; detailThumbnailsContainer.innerHTML = ''; detailThumbnails.length = 0;
-                const currentProject = siteData.projects[currentExpandedIndex];
-                const detailUrls = currentProject ? currentProject.details : [];
-
-                if (popTotEl) popTotEl.innerText = detailUrls.length;
-
-                detailUrls.forEach((url, i) => {
-                    const imgWrapper = document.createElement('div'); imgWrapper.classList.add('detail-image-wrapper');
-                    const imgInner = document.createElement('div'); imgInner.classList.add('detail-image-inner');
-                    const img = document.createElement('img'); 
-                    img.src = url; img.loading = "lazy"; img.decoding = "async";
-                    img.alt = currentProject[`title_${currentLang}`];
-
-                    imgInner.appendChild(img); imgWrapper.appendChild(imgInner); detailImagesContainer.appendChild(imgWrapper);
-
-                    const thumbBox = document.createElement('div'); thumbBox.classList.add('detail-thumbnail-box', 'hover-target');
-                    const thumbImg = document.createElement('img'); thumbImg.src = url; thumbImg.loading = "lazy"; thumbImg.decoding = "async";
-                    thumbBox.appendChild(thumbImg); detailThumbnailsContainer.appendChild(thumbBox); detailThumbnails.push(thumbBox);
-                    thumbBox.addEventListener('click', () => switchDetailImage(i));
-                });
-                
-                currentDetailIndex = 0; 
-                // 清理可能残留的内联 transform 属性，防止桌面端切移动端出现样式冲突
-                gsap.set(detailImagesContainer, { clearProps: "transform" });
-                window.switchDetailImage(0, false);
-            };
-
-            const openProjectDetail = () => {
-                if (isTransitioning || !detailPopup) return;
-                isTransitioning = true;
-                loadProjectDetails();
-                
-                gsap.to(topLeftContainer, { opacity: 0, pointerEvents: 'none', duration: 0.4 });
-                if (isMobile()) gsap.to(popCounter, { opacity: 1, duration: 1.2, ease: "expo.inOut", delay: 0.2 });
-
-                gsap.to(detailOverlay, { opacity: 1, backgroundColor: "#ffffff", duration: 1.2, ease: "expo.inOut", onStart: () => detailOverlay.classList.add('active') });
-                
-                heroTitleLargeEl.classList.add('light-mode');
-                gsap.to(heroTitleOffset, { y: -30, duration: 1.2, ease: "expo.inOut" });
-                gsap.to(heroTitleLargeEl, { opacity: 0.95, duration: 1.2, ease: "expo.inOut", onStart: () => { heroTitleLargeEl.style.zIndex = 45; } });
-                
-                gsap.fromTo(detailImagesContainer, { scale: 1.05 }, { scale: 1.0, duration: 1.2, ease: "expo.out" });
-                gsap.to(detailPopup, { opacity: 1, autoAlpha: 1, duration: 1.2, ease: "expo.inOut", onStart: () => detailPopup.classList.add('active'), onComplete: () => { isTransitioning = false; } });
-                
-                exploreBtn.style.pointerEvents = "none"; gsap.killTweensOf(exploreBtn); gsap.to(exploreBtn, { opacity: 0, duration: 0.4 });
-            };
-
-            const closeProjectDetail = () => {
-                if (isTransitioning || !detailPopup) return;
-                isTransitioning = true;
-                gsap.to(topLeftContainer, { opacity: 1, pointerEvents: 'auto', duration: 0.8, delay: 0.4 });
-                gsap.to(popCounter, { opacity: 0, duration: 0.4 });
-
-                gsap.to(detailOverlay, { opacity: 0, backgroundColor: "#0a0a0a", duration: 1.0, ease: "expo.inOut", onComplete: () => detailOverlay.classList.remove('active') });
-                gsap.to(detailImagesContainer, { scale: 1.05, duration: 1.0, ease: "expo.inOut" });
-                gsap.to(detailPopup, { opacity: 0, autoAlpha: 0, duration: 1.0, ease: "expo.inOut", onComplete: () => detailPopup.classList.remove('active') });
-                
-                heroTitleLargeEl.classList.remove('light-mode');
-                gsap.to(heroTitleOffset, { y: 0, duration: 1.0, ease: "expo.inOut" });
-                gsap.to(heroTitleLargeEl, { opacity: 1, duration: 1.0, ease: "expo.inOut", onComplete: () => { isTransitioning = false; } });
-                
-                exploreBtn.style.pointerEvents = "auto"; gsap.killTweensOf(exploreBtn);
-                gsap.to(exploreBtn, { opacity: 1, duration: 0.8, delay: 0.4, onComplete: () => {
-                    gsap.to(exploreBtn, { opacity: 0.4, duration: 1.2, yoyo: true, repeat: -1, ease: "sine.inOut" });
-                }});
-            };
-
-            window.addEventListener('wheel', (e) => {
-                if (isTransitioning) return;
-                if (detailPopup.classList.contains('active')) {
-                    if (isDetailScrolling) return; 
-                    
-                    if (isMobile()) {
-                        // 移动端主要通过触摸，但防备外接设备或鼠标的情况
-                        if (Math.abs(e.deltaX) > 25 || Math.abs(e.deltaY) > 25) {
-                            const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-                            if (delta > 0) window.switchDetailImage(currentDetailIndex + 1); 
-                            else if (delta < 0) window.switchDetailImage(currentDetailIndex - 1); 
-                        }
-                    } else {
-                        // 桌面端正常的垂直滚动
-                        if (Math.abs(e.deltaY) > 25) { 
-                            if (e.deltaY > 0) window.switchDetailImage(currentDetailIndex + 1); 
-                            else if (e.deltaY < 0) window.switchDetailImage(currentDetailIndex - 1); 
-                        }
-                    }
-                    return;
-                }
-                if (isGalleryExpanded) {
-                    if (Math.abs(e.deltaY) > 1 || Math.abs(e.deltaX) > 1) closeExpandedView();
-                    return; 
-                }
-                physics.velocity -= (e.deltaY + e.deltaX) * 0.0012; 
-            }, { passive: true });
-
-            let touchStartX = 0; let touchStartY = 0;
-            window.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
-                mouse.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
-                isMouseMoving = true; 
-                const swipeIndicator = document.getElementById('mobile-swipe-indicator');
-                if (swipeIndicator && !swipeIndicator.classList.contains('hidden-forever')) {
-                    swipeIndicator.classList.add('hidden-forever'); gsap.killTweensOf(swipeIndicator); gsap.to(swipeIndicator, { opacity: 0, duration: 0.3 });
-                }
-            }, { passive: true });
-
-            window.addEventListener('touchmove', (e) => {
-                if (e.cancelable) e.preventDefault();
-                if (isTransitioning) return;
-                const touchX = e.touches[0].clientX; const touchY = e.touches[0].clientY;
-                const deltaX = touchStartX - touchX; const deltaY = touchStartY - touchY;
-
-                if (detailPopup.classList.contains('active')) {
-                    if (!isDetailScrolling) {
-                        if (isMobile()) {
-                            // 移动端：主要检测横向位移来判断左右滑动
-                            if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
-                                if (deltaX > 0) { 
-                                    window.switchDetailImage(currentDetailIndex + 1); 
-                                    touchStartX = touchX; // 重置防止多次触发
-                                } else if (deltaX < 0) { 
-                                    window.switchDetailImage(currentDetailIndex - 1); 
-                                    touchStartX = touchX; 
-                                }
-                            }
-                        } else {
-                            // 桌面端（例如触控板）：依然检测纵向位移
-                            if (Math.abs(deltaY) > 30) {
-                                if (deltaY > 0) { 
-                                    window.switchDetailImage(currentDetailIndex + 1); 
-                                    touchStartY = touchY; 
-                                } else if (deltaY < 0) { 
-                                    window.switchDetailImage(currentDetailIndex - 1); 
-                                    touchStartY = touchY; 
-                                }
-                            }
-                        }
-                    }
-                    return;
-                }
-                if (isGalleryExpanded) {
-                    if (Math.abs(deltaY) > 40 || Math.abs(deltaX) > 40) closeExpandedView();
-                    return; 
-                }
-                physics.velocity -= deltaX * 0.0035; 
-                touchStartX = touchX; touchStartY = touchY;
-            }, { passive: false }); 
-
             const navLinesContainer = document.getElementById('nav-lines-container');
+            const navCounter = document.getElementById('nav-counter');
+            const navCurrText = document.getElementById('nav-curr');
             const navLines = [];
             
             for (let i = 0; i < IMAGES_COUNT; i++) {
-                const line = document.createElement('div'); line.classList.add('nav-line', 'hover-target'); 
-                navLinesContainer.appendChild(line); navLines.push(line);
+                const line = document.createElement('div');
+                line.classList.add('nav-line', 'hover-target'); 
+                navLinesContainer.appendChild(line);
+                navLines.push(line);
                 gsap.to(line, { opacity: 0.15, duration: 1.0, delay: i * 0.02, ease: "expo.out" });
             }
+            
             document.getElementById('nav-tot').innerText = String(IMAGES_COUNT).padStart(2, '0');
 
             const textureManager = new THREE.LoadingManager();
             const textureLoader = new THREE.TextureLoader(textureManager); 
             const loadedTextures = photoUrls.map(url => textureLoader.load(url));
 
-            textureManager.onProgress = (url, itemsLoaded) => {
+            textureManager.onProgress = (url, itemsLoaded, itemsTotal) => {
                 if (hasStarted) return; 
                 const index = Math.min(itemsLoaded - 1, IMAGES_COUNT - 1);
                 if (navLines[index]) {
@@ -769,20 +770,26 @@
                 gsap.set(navLines, { clearProps: "all" });
                 
                 const isMob = isMobile();
+                const endGap = isMob ? '3px' : '6px';
+                const endHeight = isMob ? '8px' : '12px';
+                const endTop = isMob ? '28px' : '46px';
+
                 const tlIntro = gsap.timeline({ onComplete: () => { 
                     isIntroReady = true; 
                     if (isMob) {
                         const swipeInd = document.getElementById('mobile-swipe-indicator');
-                        if (swipeInd && !swipeInd.classList.contains('hidden-forever')) gsap.to(swipeInd, { opacity: 1, duration: 1.5, delay: 0.5, ease: "power2.out" });
+                        if (swipeInd && !swipeInd.classList.contains('hidden-forever')) {
+                            gsap.to(swipeInd, { opacity: 1, duration: 1.5, delay: 1.0, ease: "power2.out" });
+                        }
                     }
                 } });
 
                 navLines.forEach((line) => { line.classList.remove('active'); line.style.boxShadow = 'none'; });
                 navLines[0].classList.add('active');
 
-                tlIntro.to('#nav-lines-container', { gap: isMob ? '3px' : '6px', duration: 1.2, ease: "power3.inOut" }, 0.2)
-                       .to(navLines, { height: isMob ? '8px' : '12px', backgroundColor: '#333', opacity: 1, duration: 1.2, ease: "power3.inOut" }, 0.2)
-                       .to('#nav-container-wrapper', { top: isMob ? '28px' : '46px', duration: 1.2, ease: "power4.inOut" }, 1.0)
+                tlIntro.to('#nav-lines-container', { gap: endGap, duration: 1.2, ease: "power3.inOut" }, 0.2)
+                       .to(navLines, { height: endHeight, backgroundColor: '#333', opacity: 1, duration: 1.2, ease: "power3.inOut" }, 0.2)
+                       .to('#nav-container-wrapper', { top: endTop, duration: 1.2, ease: "power4.inOut" }, 1.0)
                        .to('#webgl-canvas', { opacity: 1, filter: "blur(0px)", scale: 1.0, duration: 2.8, ease: "power2.out" }, 0.8)
                        .fromTo('.corner-element', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 1.8, stagger: 0.08, ease: "power3.out" }, 1.5)
                        .call(() => { profileSection.classList.add('visible'); }, [], 2.0);
@@ -790,13 +797,12 @@
                 setupWebGL();
             }
 
-            let currentActiveIndex = 0;
-
             function setupWebGL() {
                 const canvas = document.getElementById('webgl-canvas');
                 const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
                 renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(window.innerWidth < 768 ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
+                const pixelRatio = window.innerWidth < 768 ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2);
+                renderer.setPixelRatio(pixelRatio);
 
                 const scene = new THREE.Scene();
                 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -846,11 +852,89 @@
                     galleryGroup.add(mesh); meshList.push(mesh);
                 });
 
-                const maxScrollLimit = 0; const minScrollLimit = -(startOffsetX + (IMAGES_COUNT - 1) * spacing);
+                const maxScrollLimit = 0; 
+                const minScrollLimit = -(startOffsetX + (IMAGES_COUNT - 1) * spacing);
+                let currentActiveIndex = 0;
+
+                window.triggerExpand = function(meshIndex) {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    
+                    if (currentActiveIndex !== -1 && currentActiveIndex !== meshIndex) {
+                        if (navLines[currentActiveIndex]) navLines[currentActiveIndex].classList.remove('active');
+                        navLines[meshIndex].classList.add('active');
+                    }
+                    
+                    if(isGalleryExpanded && currentExpandedIndex !== meshIndex) {
+                        const oldMesh = meshList[currentExpandedIndex];
+                        const ghostText = heroTitleLargeEl.cloneNode(true);
+                        heroTitleLargeEl.parentNode.appendChild(ghostText);
+                        gsap.to(ghostText, { opacity: 0, filter: "blur(8px)", duration: 0.8, ease: "power2.out", onComplete: () => ghostText.remove() });
+                        gsap.to(oldMesh.scale, { x: 1, y: 1, duration: 1.0, ease: "power3.inOut" });
+                        gsap.to(oldMesh.position, { z: 0, duration: 1.0, ease: "power3.inOut" });
+                        gsap.to(oldMesh.userData.expandState, { progress: 0, duration: 1.0, ease: "power3.inOut" });
+                    }
+                    
+                    isGalleryExpanded = true; currentExpandedIndex = meshIndex; currentActiveIndex = meshIndex; 
+
+                    gsap.to(topRightContainer, { opacity: 0, pointerEvents: 'none', duration: 0.4 });
+
+                    let targetScroll = -(startOffsetX + meshIndex * spacing);
+                    gsap.to(physics, { target: targetScroll, current: targetScroll, velocity: 0, duration: 1.0, ease: "power3.inOut" });
+
+                    const targetMesh = meshList[meshIndex];
+                    gsap.to(targetMesh.scale, { x: expandedWidth / imgWidth, y: expandedHeight / imgHeight, duration: 1.4, ease: "power4.inOut" });
+                    gsap.to(targetMesh.position, { z: 6.5, duration: 1.4, ease: "power4.inOut" });
+                    gsap.to(targetMesh.userData.expandState, { progress: 1, duration: 1.4, ease: "power4.inOut", onComplete: () => { isTransitioning = false; } });
+
+                    navCurrText.innerText = String(meshIndex + 1).padStart(2, '0');
+                    gsap.fromTo(navCurrText, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, delay: 0.3, ease: "back.out(2)" });
+                    gsap.to(navCounter, { opacity: 1, duration: 0.6, delay: 0.4 });
+
+                    gsap.to(navLinesContainer, { x: ((IMAGES_COUNT - 1) / 2 - meshIndex) * 7, duration: 1.0, ease: "power3.inOut" });
+
+                    navLines.forEach((line, i) => {
+                        line.style.pointerEvents = "auto";
+                        if(i < meshIndex) gsap.to(line, { x: -45, opacity: 1, duration: 0.8, ease: "expo.inOut" });
+                        else if(i > meshIndex) gsap.to(line, { x: 45, opacity: 1, duration: 0.8, ease: "expo.inOut" });
+                        else { gsap.to(line, { opacity: 0, duration: 0.3 }); line.style.pointerEvents = "none"; }
+                    });
+
+                    exploreBtn.style.pointerEvents = "auto";
+                    gsap.killTweensOf(exploreBtn);
+                    gsap.to(exploreBtn, { opacity: 1, duration: 0.8, delay: 0.6, onComplete: () => {
+                        gsap.to(exploreBtn, { opacity: 0.4, duration: 1.2, yoyo: true, repeat: -1, ease: "sine.inOut" });
+                    }});
+                }
+
+                window.closeExpandedView = function() {
+                    if (!isGalleryExpanded || isTransitioning) return;
+                    isTransitioning = true; isGalleryExpanded = false;
+
+                    gsap.to(topRightContainer, { opacity: 1, pointerEvents: 'auto', duration: 0.8, delay: 0.4 });
+
+                    if (heroTitleLargeEl.style.opacity > 0) {
+                        const ghostText = heroTitleLargeEl.cloneNode(true); heroTitleLargeEl.parentNode.appendChild(ghostText);
+                        gsap.set(heroTitleLargeEl, { opacity: 0 });
+                        gsap.to(ghostText, { opacity: 0, filter: "blur(12px)", duration: 0.8, ease: "power2.out", onComplete: () => ghostText.remove() });
+                    }
+
+                    const oldMesh = meshList[currentExpandedIndex];
+                    gsap.to(oldMesh.scale, { x: 1, y: 1, duration: 1.2, ease: "power3.inOut" });
+                    gsap.to(oldMesh.position, { z: 0, duration: 1.2, ease: "power3.inOut" });
+                    gsap.to(oldMesh.userData.expandState, { progress: 0, duration: 1.2, ease: "power3.inOut", onComplete: () => { isTransitioning = false; } });
+                    
+                    gsap.to(navCounter, { opacity: 0, duration: 0.4 });
+                    gsap.to(navLinesContainer, { x: 0, duration: 0.8, ease: "power3.inOut" });
+
+                    navLines.forEach((line) => { line.style.pointerEvents = "auto"; gsap.to(line, { x: 0, opacity: 1, duration: 0.8, ease: "expo.inOut" }); });
+                    
+                    exploreBtn.style.pointerEvents = "none"; gsap.killTweensOf(exploreBtn); gsap.to(exploreBtn, { opacity: 0, duration: 0.3 });
+                }
 
                 navLines.forEach((line, index) => {
                     line.addEventListener('click', () => {
-                        if (isTransitioning) return;
+                        if (isTransitioning || aboutOverlay.classList.contains('active')) return;
                         if(detailPopup.classList.contains('active')) { window.switchDetailImage(0); return; }
                         if(isGalleryExpanded) { triggerExpand(index); } 
                         else {
@@ -861,7 +945,7 @@
                 });
 
                 window.addEventListener('click', (e) => {
-                    if(!isIntroReady || isTransitioning || e.target.closest('#explore-btn') || e.target.closest('#nav-lines-container') || e.target.closest('#project-detail-popup') || e.target.closest('#profile-section') || e.target.closest('.top-right')) return;
+                    if(!isIntroReady || isTransitioning || aboutOverlay.classList.contains('active') || e.target.closest('#explore-btn') || e.target.closest('#nav-lines-container') || e.target.closest('#project-detail-popup') || e.target.closest('#profile-section') || e.target.closest('.top-right')) return;
                     raycaster.setFromCamera(mouse, camera);
                     const intersects = raycaster.intersectObjects(galleryGroup.children);
                     if (intersects.length > 0) { if (!isGalleryExpanded) triggerExpand(intersects[0].object.userData.index); } 
@@ -925,7 +1009,7 @@
                         lastIntersectedMesh = intersects.length > 0 ? intersects[0].object : null; isMouseMoving = false; 
                     }
 
-                    if (lastIntersectedMesh) {
+                    if (lastIntersectedMesh && !aboutOverlay.classList.contains('active')) {
                         isHoveringWebGL = true; currentHoveredMesh = lastIntersectedMesh;
                         if (isIntroReady && !isGalleryExpanded) currentHoveredMesh.userData.material.uniforms.u_hover.value += (1.0 - currentHoveredMesh.userData.material.uniforms.u_hover.value) * 0.2;
                     }
@@ -934,10 +1018,12 @@
 
                     if (currentHoveredMesh && isIntroReady) {
                         if (hoverTitleSmallEl.innerText !== currentHoveredMesh.userData.title) hoverTitleSmallEl.innerText = currentHoveredMesh.userData.title;
+
                         const expProg = currentHoveredMesh.userData.expandState.progress;
                         const focusWeight = Math.pow(Math.max(0, Math.min(1, Math.abs(currentHoveredMesh.position.x + galleryGroup.position.x) / 7.5)), 2) * (3 - 2 * Math.max(0, Math.min(1, Math.abs(currentHoveredMesh.position.x + galleryGroup.position.x) / 7.5)));
                         
-                        const vwScaleX = 1.0 + focusWeight * 0.10 * displayDeformation; const cWidth = imgWidth * currentHoveredMesh.scale.x;
+                        const vwScaleX = 1.0 + focusWeight * 0.10 * displayDeformation;
+                        const cWidth = imgWidth * currentHoveredMesh.scale.x;
                         const ll = new THREE.Vector3(-cWidth/2*vwScaleX, 0, 0).applyMatrix4(currentHoveredMesh.matrixWorld).project(camera);
                         const lr = new THREE.Vector3(cWidth/2*vwScaleX, 0, 0).applyMatrix4(currentHoveredMesh.matrixWorld).project(camera);
                         hoverTitleSmallEl.style.width = `${Math.max(Math.abs((lr.x - ll.x) * 0.5 * window.innerWidth) - 40, 100)}px`;
@@ -962,7 +1048,7 @@
                         if (!detailPopup.classList.contains('active') && heroTitleOffset.y === 0) heroTitleLargeEl.style.opacity = tMesh.userData.expandState.progress; 
                     }
 
-                    if (!detailPopup.classList.contains('active') || isTransitioning) {
+                    if ((!detailPopup.classList.contains('active') && !aboutOverlay.classList.contains('active')) || isTransitioning) {
                         renderer.render(scene, camera);
                     }
                 }
@@ -972,14 +1058,99 @@
                     renderer.setSize(window.innerWidth, window.innerHeight);
                     camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
                     if (detailPopup.classList.contains('active')) {
-                        // 窗口大小改变时，调用非动画版的跳转，以自适应正确的宽高偏移
-                        window.switchDetailImage(currentDetailIndex, false);
+                        const wrapperEl = document.querySelector('.detail-image-wrapper');
+                        const slideHeight = wrapperEl ? wrapperEl.offsetHeight : window.innerHeight;
+                        gsap.set(detailImagesContainer, { y: -slideHeight * currentDetailIndex });
                     }
                 });
             }
 
-            exploreBtn.addEventListener('click', openProjectDetail);
-            detailCloseBtn.addEventListener('click', closeProjectDetail);
+            window.loadProjectDetails = function() {
+                detailImagesContainer.innerHTML = ''; detailThumbnailsContainer.innerHTML = ''; detailThumbnails.length = 0;
+                const currentProject = siteData.projects[currentExpandedIndex];
+                const detailUrls = currentProject ? currentProject.details : [];
+
+                if (popTotEl) popTotEl.innerText = detailUrls.length;
+
+                detailUrls.forEach((url, i) => {
+                    const imgWrapper = document.createElement('div'); imgWrapper.classList.add('detail-image-wrapper');
+                    const imgInner = document.createElement('div'); imgInner.classList.add('detail-image-inner');
+                    const img = document.createElement('img'); img.src = url; img.loading = "lazy"; img.decoding = "async";
+                    imgInner.appendChild(img); imgWrapper.appendChild(imgInner); detailImagesContainer.appendChild(imgWrapper);
+
+                    const thumbBox = document.createElement('div'); thumbBox.classList.add('detail-thumbnail-box', 'hover-target');
+                    const thumbImg = document.createElement('img'); thumbImg.src = url; thumbImg.loading = "lazy"; thumbImg.decoding = "async";
+                    thumbBox.appendChild(thumbImg); detailThumbnailsContainer.appendChild(thumbBox); detailThumbnails.push(thumbBox);
+
+                    thumbBox.addEventListener('click', () => window.switchDetailImage(i));
+                });
+                currentDetailIndex = 0;
+                gsap.set(detailImagesContainer, { clearProps: "transform" });
+                window.switchDetailImage(0, false);
+            }
+
+            window.switchDetailImage = function(index, animate = true) {
+                const maxIdx = siteData.projects[currentExpandedIndex].details.length - 1;
+                if (index < 0 || index > maxIdx || (currentDetailIndex === index && animate)) return;
+
+                isDetailScrolling = true; currentDetailIndex = index;
+                detailThumbnails.forEach(t => t.classList.remove('active')); 
+                if(detailThumbnails[index]) detailThumbnails[index].classList.add('active');
+
+                if (popCurrEl) popCurrEl.innerText = index + 1;
+
+                const wrapperEl = document.querySelector('.detail-image-wrapper');
+                const slideHeight = wrapperEl ? wrapperEl.offsetHeight : window.innerHeight;
+                const slideWidth = window.innerWidth;
+                const targetProps = isMobile() ? { x: -slideWidth * index, y: 0 } : { y: -slideHeight * index, x: 0 };
+
+                if (animate) gsap.to(detailImagesContainer, { ...targetProps, duration: 1.2, ease: "expo.inOut", onComplete: () => { isDetailScrolling = false; } });
+                else { gsap.set(detailImagesContainer, targetProps); isDetailScrolling = false; }
+            }
+
+            window.openProjectDetail = function() {
+                if (isTransitioning || !detailPopup) return;
+                isTransitioning = true;
+                window.loadProjectDetails();
+                
+                gsap.to(topLeftContainer, { opacity: 0, pointerEvents: 'none', duration: 0.4 });
+                if (isMobile()) gsap.to(popCounter, { opacity: 1, duration: 1.2, ease: "expo.inOut", delay: 0.2 });
+
+                gsap.to(detailOverlay, { opacity: 1, backgroundColor: "#ffffff", duration: 1.2, ease: "expo.inOut", onStart: () => detailOverlay.classList.add('active') });
+                
+                heroTitleLargeEl.classList.add('light-mode');
+                gsap.to(heroTitleOffset, { y: -30, duration: 1.2, ease: "expo.inOut" });
+                gsap.to(heroTitleLargeEl, { opacity: 0.95, duration: 1.2, ease: "expo.inOut", onStart: () => { heroTitleLargeEl.style.zIndex = 45; } });
+                
+                gsap.fromTo(detailImagesContainer, { scale: 1.05 }, { scale: 1.0, duration: 1.2, ease: "expo.out" });
+                gsap.to(detailPopup, { opacity: 1, autoAlpha: 1, duration: 1.2, ease: "expo.inOut", onStart: () => detailPopup.classList.add('active'), onComplete: () => { isTransitioning = false; } });
+                
+                exploreBtn.style.pointerEvents = "none"; gsap.killTweensOf(exploreBtn); gsap.to(exploreBtn, { opacity: 0, duration: 0.4 });
+            }
+
+            window.closeProjectDetail = function() {
+                if (isTransitioning || !detailPopup) return;
+                isTransitioning = true;
+
+                gsap.to(topLeftContainer, { opacity: 1, pointerEvents: 'auto', duration: 0.8, delay: 0.4 });
+                gsap.to(popCounter, { opacity: 0, duration: 0.4 });
+
+                gsap.to(detailOverlay, { opacity: 0, backgroundColor: "#0a0a0a", duration: 1.0, ease: "expo.inOut", onComplete: () => detailOverlay.classList.remove('active') });
+                gsap.to(detailImagesContainer, { scale: 1.05, duration: 1.0, ease: "expo.inOut" });
+                gsap.to(detailPopup, { opacity: 0, autoAlpha: 0, duration: 1.0, ease: "expo.inOut", onComplete: () => detailPopup.classList.remove('active') });
+                
+                heroTitleLargeEl.classList.remove('light-mode');
+                gsap.to(heroTitleOffset, { y: 0, duration: 1.0, ease: "expo.inOut" });
+                gsap.to(heroTitleLargeEl, { opacity: 1, duration: 1.0, ease: "expo.inOut", onComplete: () => { isTransitioning = false; } });
+                
+                exploreBtn.style.pointerEvents = "auto"; gsap.killTweensOf(exploreBtn);
+                gsap.to(exploreBtn, { opacity: 1, duration: 0.8, delay: 0.4, onComplete: () => {
+                    gsap.to(exploreBtn, { opacity: 0.4, duration: 1.2, yoyo: true, repeat: -1, ease: "sine.inOut" });
+                }});
+            }
+
+            exploreBtn.addEventListener('click', window.openProjectDetail);
+            detailCloseBtn.addEventListener('click', window.closeProjectDetail);
         }
     </script>
 </body>
