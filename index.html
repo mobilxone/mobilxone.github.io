@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+SC:wght@300;400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Noto+Sans+SC:wght@300;400;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
@@ -62,7 +62,7 @@
         .corner-element { position: absolute; font-size: 10px; letter-spacing: 0.1em; line-height: 1.5; opacity: 0; pointer-events: auto; }
         
         .top-left { top: 40px; left: 40px; z-index: 1005; }
-        .top-left .logo { font-family: "Impact", "Arial Narrow", "PingFang SC", sans-serif; font-size: 28px; font-weight: 500; letter-spacing: -0.02em; transform: scaleY(1.2); display: inline-block; transform-origin: left bottom; }
+        .top-left .logo { font-family: "Impact", "Anton", "Arial Black", "PingFang SC", sans-serif; font-size: 28px; font-weight: 500; letter-spacing: -0.02em; transform: scaleY(1.2); display: inline-block; transform-origin: left bottom; }
         
         .top-right { top: 40px; right: 40px; text-align: right; display: flex; align-items: center; gap: 20px; transition: opacity 0.4s ease; z-index: 1005; }
         
@@ -132,7 +132,7 @@
 
         .profile-name, .profile-title, .profile-desc, .skill-tag span, .tl-date, .tl-title, .tl-comp, #nav-about { will-change: opacity, transform; }
 
-        .profile-name { font-family: "Impact", "Noto Sans SC", sans-serif; font-size: 52px; letter-spacing: 0.05em; color: var(--highlight); margin: 0 0 10px 0; line-height: 1; display: block;}
+        .profile-name { font-family: "Impact", "Anton", "Arial Black", "Noto Sans SC", sans-serif; font-size: 52px; letter-spacing: 0.05em; color: var(--highlight); margin: 0 0 10px 0; line-height: 1; display: block;}
         .profile-title { font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin: 0 0 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
         .profile-desc { font-size: 12px; line-height: 1.6; color: #aaaaaa; margin: 0 0 30px 0; max-width: 95%; text-transform: none; letter-spacing: 0.02em; }
         
@@ -157,7 +157,7 @@
 
         #hover-title-small { position: fixed; top: 0; left: 0; font-size: 11px; letter-spacing: 0.15em; line-height: 1.6; color: var(--text); opacity: 0; pointer-events: none; text-align: center; z-index: 20; will-change: transform, opacity, width; transition: opacity 0.2s ease-out; text-shadow: 0px 2px 8px rgba(0,0,0,0.8); }
 
-        .hero-text-style { position: fixed; top: 0; left: 0; font-family: "Impact", "Noto Sans SC", "PingFang SC", sans-serif; font-weight: 900; font-size: clamp(50px, 12vw, 180px); letter-spacing: 0.02em; color: var(--highlight); line-height: 0.8; text-shadow: 0px 15px 50px rgba(0,0,0,0.9); width: 85vw; text-align: center; opacity: 0; pointer-events: none; z-index: 45; will-change: transform, opacity, filter; transition: text-shadow 1.2s ease; }
+        .hero-text-style { position: fixed; top: 0; left: 0; font-family: "Impact", "Anton", "Arial Black", "Noto Sans SC", sans-serif; font-weight: 900; font-size: clamp(50px, 12vw, 180px); letter-spacing: 0.02em; color: var(--highlight); line-height: 0.8; text-shadow: 0px 15px 50px rgba(0,0,0,0.9); width: 85vw; text-align: center; opacity: 0; pointer-events: none; z-index: 45; will-change: transform, opacity, filter; transition: text-shadow 1.2s ease; }
         .hero-text-style.light-mode { color: rgba(216, 180, 160, 0.98); text-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.05); }
 
         #explore-btn { position: fixed; left: 50%; bottom: 60px; transform: translateX(-50%); font-size: 11px; letter-spacing: 0.2em; border-bottom: 1px solid var(--text); padding-bottom: 4px; color: var(--text); opacity: 0; pointer-events: none; will-change: opacity; cursor: none; z-index: 30; }
@@ -185,7 +185,7 @@
         .detail-thumbnail-box img { width: 100%; height: 100%; object-fit: cover; }
 
         /* =========================================
-           ABOUT 覆层 (极简全白纯文本 + 不翻译的静态内容)
+           ABOUT 覆层 (极简全白纯文本 + 独立内容)
         ========================================= */
         #about-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -204,7 +204,11 @@
         .close-icon:hover .close-line.line-1 { transform: rotate(135deg); }
         .close-icon:hover .close-line.line-2 { transform: rotate(45deg); }
 
-        .about-container { width: 100%; height: 100%; display: flex; padding: 140px 60px 60px 8vw; box-sizing: border-box; }
+        .about-container { 
+            position: relative;
+            width: 100%; height: 100%; 
+            display: flex; padding: 140px 60px 60px 8vw; box-sizing: border-box; 
+        }
         
         .about-left-col { width: 35%; display: flex; flex-direction: column; overflow-y: auto; padding-right: 40px; }
         .about-left-col::-webkit-scrollbar { display: none; }
@@ -222,12 +226,14 @@
         .about-pt-comp { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; font-weight: 300; }
         .about-pt-date { font-size: 12px; color: #ffffff; letter-spacing: 0.1em; font-weight: bold; text-align: right; opacity: 0.9; }
 
-        .about-right-col { width: 65%; display: flex; flex-direction: column; position: relative; }
+        /* 桌面端右侧栏：保持 relative 定位，让内部视频完美吸附于此 */
+        .about-right-col { position: relative; width: 65%; display: flex; flex-direction: column; }
         
         .about-contact-list { position: absolute; top: 0; right: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
         .contact-row { font-size: 11px; letter-spacing: 0.15em; display: flex; gap: 15px; align-items: center; }
         .contact-label { color: rgba(255,255,255,0.4); }
 
+        /* 完美还原：视频在桌面端相对于 right-col 绝对定位，位置正是你精心调整的 */
         .about-video-wrapper { 
             position: absolute;
             top: 0;
@@ -240,9 +246,12 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.8); 
             background: #111;
         }
+        /* 屏蔽视频点击事件，阻止 iOS 弹出播放器或下载 */
         .about-video-wrapper video { 
             width: 100%; height: 100%; object-fit: cover; 
             filter: brightness(0.85) contrast(1.1); transition: filter 0.5s ease; 
+            pointer-events: none; 
+            -webkit-touch-callout: none;
         }
         .about-video-wrapper:hover video { filter: brightness(1.1) contrast(1.1); }
 
@@ -263,7 +272,7 @@
             background: linear-gradient(110deg, #ffffff 0%, #d8b4a0 15%, #7a6e67 30%, #e8d0c3 45%, #4a4a4a 60%, #bfa090 75%, #ffffff 90%, #d8b4a0 100%);
             background-size: 400% 400%;
             -webkit-background-clip: text;
-            background-clip: text; 
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: flowGradient 8s ease-in-out infinite alternate;
         }
@@ -276,7 +285,7 @@
         .anim-stagger, .huge-name, .contact-row, .anim-video { will-change: transform, opacity; }
 
         /* =========================================
-           移动端 (Mobile) 终极适配优化 
+           移动端 (Mobile) 终极排版修复
         ========================================= */
         @media (max-width: 768px) {
             .cursor { display: none !important; }
@@ -289,12 +298,14 @@
             .profile-title { font-size: 10px; margin-bottom: 10px; }
             .profile-desc { font-size: 11px; max-width: 100%; margin-bottom: 10px; }
             
+            /* 严格隐藏首页的个人履历 */
             .profile-right { display: none !important; } 
 
             .top-left { top: 20px; left: 20px; } 
             .top-left .logo { font-size: 16px; } 
             
-            .top-right { top: 20px; right: 20px; display: flex !important; flex-direction: column; align-items: flex-end; gap: 10px; } 
+            /* ABOUT 在上，简/EN 在下 */
+            .top-right { top: 20px; right: 20px; display: flex !important; flex-direction: column-reverse; align-items: flex-end; gap: 10px; }
             #nav-about, #lang-toggle { font-size: 9px; line-height: 1; margin: 0; }
 
             #nav-container-wrapper { transform: translate(-50%, -50%); width: 100vw; }
@@ -322,31 +333,36 @@
             #mobile-swipe-indicator.hidden-forever { opacity: 0 !important; display: none !important;}
 
             /* =======================================
-               About 移动端终极排版 (打平层级、上下滑动)
+               About 移动端终极排版修复 (完全抛弃 order 导致的问题)
                ======================================= */
             .about-container { 
                 display: flex; 
                 flex-direction: column; 
-                /* 增加底部留白，防止左下角版权文字重叠 */
-                padding: 80px 20px 150px 20px; 
+                /* 巨大的 padding-top，给绝对定位的视频让出充足空间！ */
+                padding: 85vw 20px 150px 20px; 
                 overflow-y: auto; 
                 overflow-x: hidden;
             }
             
-            /* 使用 display: contents 打平左右列结构，实现自由排序 */
-            .about-left-col, .about-right-col { display: contents; }
+            .about-left-col { width: 100%; padding-right: 0; padding-bottom: 40px; }
             
-            /* 强行控制移动端的上下排列顺序 */
-            .about-video-wrapper { order: 1; position: relative; top: 0; left: 0; width: 100%; margin-bottom: 30px; max-width: none; pointer-events: none; }
-            .about-ext-title { order: 2; }
-            .about-ext-desc { order: 3; }
-            .about-exp-label { order: 4; }
-            .about-exp-list { order: 5; margin-bottom: 40px; }
-            .about-contact-list { order: 6; position: relative; flex-direction: column; align-items: flex-start; margin-bottom: 60px; }
+            /* 解除右侧面板的 relative 定位，让里面的视频可以直接相对于 .about-container 定位 */
+            .about-right-col { position: static; width: 100%; }
             
-            /* JUNJIE 死死固定在右下角 */
+            /* 【核心修复】：移动端视频使用绝对定位强制置顶 */
+            .about-video-wrapper { 
+                position: absolute; 
+                top: 100px; /* 在顶部菜单下方 */
+                left: 20px; 
+                width: calc(100% - 40px); 
+                margin: 0; 
+                max-width: none; 
+            }
+            
+            .about-contact-list { position: relative; top: auto; right: auto; flex-direction: column; align-items: flex-start; margin-top: 20px; margin-bottom: 60px; }
+            
+            /* JUNJIE 依然稳稳固定在屏幕右下角 */
             .huge-name-wrapper {
-                order: 7;
                 position: fixed; 
                 right: 20px;     
                 bottom: 20px;    
@@ -400,8 +416,8 @@
 
         <div class="corner-element top-left"><span class="logo hover-target">PORTFOLIO</span></div>
         <div class="corner-element top-right">
-            <a href="#" id="nav-about" class="underline-a hover-target">ABOUT</a>
             <a href="#" id="lang-toggle" class="underline-a hover-target">简 / EN</a>
+            <a href="#" id="nav-about" class="underline-a hover-target">ABOUT</a>
         </div>
         <div class="corner-element bottom-left" id="footer-text">LIU JUNJIE<br>ALL RIGHTS RESERVED 2026</div>
         <div class="corner-element bottom-right">
@@ -422,16 +438,47 @@
 
         <div class="about-container">
             <div class="about-left-col">
-                <h2 id="about-title-ext" class="about-ext-title anim-stagger"></h2>
-                <p id="about-desc-ext" class="about-ext-desc anim-stagger"></p>
-                <div id="about-exp-label" class="about-exp-label anim-stagger"></div>
+                <h2 class="about-ext-title anim-stagger">PHOTOGRAPHER & AI GRAPHIC DESIGNER</h2>
+                <p class="about-ext-desc anim-stagger">As a visual storyteller, I am deeply passionate about the intersection of technology and traditional photographic arts. Over the years, I have honed my expertise in interior photography, sophisticated lighting design, and high-end retouching.
+
+                My philosophy revolves around using soft, natural lighting to sculpt the contours of objects. By faithfully reproducing the subtle interplay of light and shadow, I aim to deliver sophisticated, premium-quality visual aesthetics. I believe that light is not just a medium, but the very core of any visual masterpiece.</p>
+                <div class="about-exp-label anim-stagger">PROFESSIONAL EXPERIENCE</div>
                 
-                <div class="about-exp-list" id="about-exp-list"></div>
+                <div class="about-exp-list" id="about-exp-list">
+                    <div class="about-pt-item anim-stagger">
+                        <div class="about-pt-left">
+                            <div class="about-pt-role">AI Graphic Designer</div>
+                            <div class="about-pt-comp">Wu Ji Suo You Studio</div>
+                        </div>
+                        <div class="about-pt-date">2025 - PRESENT</div>
+                    </div>
+                    <div class="about-pt-item anim-stagger">
+                        <div class="about-pt-left">
+                            <div class="about-pt-role">Chief Photographer</div>
+                            <div class="about-pt-comp">Zhuhai Huihuan Co. Ltd.</div>
+                        </div>
+                        <div class="about-pt-date">2023 - 2025</div>
+                    </div>
+                    <div class="about-pt-item anim-stagger">
+                        <div class="about-pt-left">
+                            <div class="about-pt-role">Chief Photographer</div>
+                            <div class="about-pt-comp">Zhongshan Quran E-commerce Co. Ltd.</div>
+                        </div>
+                        <div class="about-pt-date">2022 - 2023</div>
+                    </div>
+                    <div class="about-pt-item anim-stagger">
+                        <div class="about-pt-left">
+                            <div class="about-pt-role">Associate Degree</div>
+                            <div class="about-pt-comp">Guangdong Polytechnic of Water Resources and Electric Power</div>
+                        </div>
+                        <div class="about-pt-date">2019 - 2022</div>
+                    </div>
+                </div>
             </div>
             
             <div class="about-right-col">
                 <div class="about-video-wrapper anim-video">
-                    <video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload" src=""></video>
+                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate" style="pointer-events: none; -webkit-touch-callout: none;" src="./images/AIJVDOU.mp4"></video>
                 </div>
 
                 <div class="about-contact-list anim-stagger">
@@ -607,20 +654,6 @@
                     links[1].href = siteData.profile.socials.instagram;
                     links[2].href = siteData.profile.socials.twitter;
                 }
-                
-                // 从 JSON 加载 About 页面内容
-                document.getElementById('about-title-ext').innerText = siteData.profile.about.title;
-                document.getElementById('about-desc-ext').innerText = siteData.profile.about.desc;
-                document.getElementById('about-exp-label').innerText = siteData.profile.about.expLabel;
-                
-                // 解决动态加载视频在 iOS 端无法播放的问题
-                const aboutVideo = document.querySelector('.about-video-wrapper video');
-                aboutVideo.src = siteData.profile.about.video;
-                aboutVideo.load();
-                let playPromise = aboutVideo.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => { console.log("Auto-play prevented by browser."); });
-                }
 
                 document.getElementById('about-email').href = `mailto:${siteData.profile.socials.email}`;
                 document.getElementById('about-email').innerText = siteData.profile.socials.email;
@@ -650,20 +683,6 @@
             mainTimelineContainer.innerHTML = '';
             profileDataAll.en.timeline.forEach((_, i) => {
                 mainTimelineContainer.innerHTML += `<div class="timeline-item hover-target"><div class="timeline-dot"></div><div class="timeline-card"><div id="tl-date-${i}" class="tl-date"></div><div id="tl-role-${i}" class="tl-title"></div><div id="tl-comp-${i}" class="tl-comp"></div></div></div>`;
-            });
-
-            // 从 JSON 动态生成 About 页面英文结构
-            const aboutExpList = document.getElementById('about-exp-list');
-            aboutExpList.innerHTML = '';
-            profileDataAll.en.timeline.forEach((item) => {
-                aboutExpList.innerHTML += `
-                <div class="about-pt-item anim-stagger">
-                    <div class="about-pt-left">
-                        <div class="about-pt-role">${item.role}</div>
-                        <div class="about-pt-comp">${item.comp}</div>
-                    </div>
-                    <div class="about-pt-date">${item.date}</div>
-                </div>`;
             });
         }
 
@@ -707,7 +726,7 @@
             if (isTransitioning) return; 
             isTransitioning = true; 
 
-            // 只切换首页参与翻译的文本
+            // 只切换首页需要翻译的元素
             const textsToAnimate = [
                 document.querySelector('.profile-name'), document.getElementById('profile-title'), document.getElementById('profile-desc'), navAboutBtn,
                 ...document.querySelectorAll('.skill-tag span'),
@@ -739,7 +758,7 @@
             tl.to(aboutOverlay, { opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out" })
               .fromTo('.anim-stagger', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.08, ease: "power3.out", clearProps: "transform" }, "-=0.4")
               .fromTo('.contact-row', { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out", clearProps: "transform" }, "-=0.6")
-              .fromTo('.anim-video', { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0, ease: "power3.out", clearProps: "transform" }, "-=0.8")
+              .fromTo('.anim-video', { scale: 0.95, opacity: 0, y: 20 }, { scale: 1, opacity: 1, y: 0, duration: 1.0, ease: "power3.out", clearProps: "transform" }, "-=0.8")
               .fromTo('.huge-name', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "expo.out", clearProps: "transform" }, "-=0.8");
         });
 
