@@ -102,11 +102,14 @@
         }
         .nav-box { width: 24px; height: 12px; border: 1px solid var(--text); box-sizing: border-box; flex-shrink: 0; display: block; }
 
+        /* 核心优化：使用 min() 函数限制最大宽度与左边距 */
         #profile-section {
             position: absolute; 
-            top: 50%; left: 0; width: 45vw; 
-            padding: 0 0 0 8vw; box-sizing: border-box;
-            display: flex; gap: 4vw; z-index: 5;
+            top: 50%; left: 0; 
+            width: min(45vw, 864px); 
+            padding: 0 0 0 min(8vw, 153px); 
+            box-sizing: border-box;
+            display: flex; gap: min(4vw, 76px); z-index: 5;
             opacity: 0; transform: translate(-50px, -50%); pointer-events: none;
             transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
         }
@@ -157,7 +160,7 @@
 
         #hover-title-small { position: fixed; top: 0; left: 0; font-size: 11px; letter-spacing: 0.15em; line-height: 1.6; color: var(--text); opacity: 0; pointer-events: none; text-align: center; z-index: 20; will-change: transform, opacity, width; transition: opacity 0.2s ease-out; text-shadow: 0px 2px 8px rgba(0,0,0,0.8); }
 
-        .hero-text-style { position: fixed; top: 0; left: 0; font-family: "Impact", "Anton", "Arial Black", "Noto Sans SC", sans-serif; font-weight: 900; font-size: clamp(50px, 12vw, 180px); letter-spacing: 0.02em; color: var(--highlight); line-height: 0.8; text-shadow: 0px 15px 50px rgba(0,0,0,0.9); width: 85vw; text-align: center; opacity: 0; pointer-events: none; z-index: 45; will-change: transform, opacity, filter; transition: text-shadow 1.2s ease; }
+        .hero-text-style { position: fixed; top: 0; left: 0; font-family: "Impact", "Anton", "Arial Black", "Noto Sans SC", sans-serif; font-weight: 900; font-size: clamp(50px, 12vw, 180px); letter-spacing: 0.02em; color: var(--highlight); line-height: 0.8; text-shadow: 0px 15px 50px rgba(0,0,0,0.9); width: min(85vw, 1632px); text-align: center; opacity: 0; pointer-events: none; z-index: 45; will-change: transform, opacity, filter; transition: text-shadow 1.2s ease; }
         .hero-text-style.light-mode { color: rgba(216, 180, 160, 0.98); text-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.05); }
 
         #explore-btn { position: fixed; left: 50%; bottom: 60px; transform: translateX(-50%); font-size: 11px; letter-spacing: 0.2em; border-bottom: 1px solid var(--text); padding-bottom: 4px; color: var(--text); opacity: 0; pointer-events: none; will-change: opacity; cursor: none; z-index: 30; }
@@ -185,7 +188,7 @@
         .detail-thumbnail-box img { width: 100%; height: 100%; object-fit: cover; }
 
         /* =========================================
-           ABOUT 覆层 (极简全白纯文本 + 独立内容)
+           ABOUT 覆层
         ========================================= */
         #about-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -207,7 +210,10 @@
         .about-container { 
             position: relative;
             width: 100%; height: 100%; 
-            display: flex; padding: 140px 60px 60px 8vw; box-sizing: border-box; 
+            display: flex; 
+            /* 核心优化：边距加入最大值锁定 */
+            padding: 140px 60px 60px min(8vw, 153px); 
+            box-sizing: border-box; 
         }
         
         .about-left-col { width: 35%; display: flex; flex-direction: column; overflow-y: auto; padding-right: 40px; }
@@ -226,19 +232,17 @@
         .about-pt-comp { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; font-weight: 300; }
         .about-pt-date { font-size: 12px; color: #ffffff; letter-spacing: 0.1em; font-weight: bold; text-align: right; opacity: 0.9; }
 
-        /* 桌面端右侧栏：保持 relative 定位，让内部视频完美吸附于此 */
         .about-right-col { position: relative; width: 65%; display: flex; flex-direction: column; }
         
         .about-contact-list { position: absolute; top: 0; right: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
         .contact-row { font-size: 11px; letter-spacing: 0.15em; display: flex; gap: 15px; align-items: center; }
         .contact-label { color: rgba(255,255,255,0.4); }
 
-        /* 完美还原：视频在桌面端相对于 right-col 绝对定位，位置正是你精心调整的 */
         .about-video-wrapper { 
             position: absolute;
             top: 0;
-            left: 13vw; 
-            width: 32vw; 
+            left: min(13vw, 250px); 
+            width: min(32vw, 614px); 
             max-width: 550px; 
             aspect-ratio: 16/9; 
             overflow: hidden; 
@@ -246,7 +250,6 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.8); 
             background: #111;
         }
-        /* 屏蔽视频点击事件，阻止 iOS 弹出播放器或下载 */
         .about-video-wrapper video { 
             width: 100%; height: 100%; object-fit: cover; 
             filter: brightness(0.85) contrast(1.1); transition: filter 0.5s ease; 
@@ -257,18 +260,20 @@
 
         .huge-name-wrapper { 
             position: absolute; 
-            right: -1vw; 
-            bottom: -2vw; 
+            /* 核心优化：限制负边距，防止在大屏被推出画面外 */
+            right: max(-1vw, -19px); 
+            bottom: max(-2vw, -38px); 
             z-index: 5; 
             pointer-events: none; 
         }
         .huge-name { 
             font-family: 'Bebas Neue', 'Anton', sans-serif; 
-            font-size: 26vw; 
+            /* 核心优化：最大尺寸被锁死在 500px，告别大屏无限拉伸 */
+            font-size: min(26vw, 500px); 
             line-height: 0.75; 
             letter-spacing: 0.01em;
             transform: scaleY(1.4); 
-            transform-origin: bottom;
+            transform-origin: bottom right;
             background: linear-gradient(110deg, #ffffff 0%, #d8b4a0 15%, #7a6e67 30%, #e8d0c3 45%, #4a4a4a 60%, #bfa090 75%, #ffffff 90%, #d8b4a0 100%);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -285,7 +290,7 @@
         .anim-stagger, .huge-name, .contact-row, .anim-video { will-change: transform, opacity; }
 
         /* =========================================
-           移动端 (Mobile) 终极排版修复
+           移动端 (Mobile) 适配
         ========================================= */
         @media (max-width: 768px) {
             .cursor { display: none !important; }
@@ -293,18 +298,17 @@
             
             #hover-title-small { display: none !important; }
 
+            /* 手机端恢复原生的 vw 布局，因为手机不存在带鱼屏拉伸问题 */
             #profile-section { width: 90vw; padding-left: 5vw; flex-direction: column; justify-content: center; gap: 15px; }
             .profile-name { font-size: 36px; }
             .profile-title { font-size: 10px; margin-bottom: 10px; }
             .profile-desc { font-size: 11px; max-width: 100%; margin-bottom: 10px; }
             
-            /* 严格隐藏首页的个人履历 */
             .profile-right { display: none !important; } 
 
             .top-left { top: 20px; left: 20px; } 
             .top-left .logo { font-size: 16px; } 
             
-            /* ABOUT 在上，简/EN 在下 */
             .top-right { top: 20px; right: 20px; display: flex !important; flex-direction: column-reverse; align-items: flex-end; gap: 10px; }
             #nav-about, #lang-toggle { font-size: 9px; line-height: 1; margin: 0; }
 
@@ -332,27 +336,20 @@
             @keyframes arrowPulse { 0% { transform: translateX(0); opacity: 0.3; } 50% { transform: translateX(8px); opacity: 1; } 100% { transform: translateX(0); opacity: 0.3; } }
             #mobile-swipe-indicator.hidden-forever { opacity: 0 !important; display: none !important;}
 
-            /* =======================================
-               About 移动端终极排版修复 (完全抛弃 order 导致的问题)
-               ======================================= */
             .about-container { 
                 display: flex; 
                 flex-direction: column; 
-                /* 巨大的 padding-top，给绝对定位的视频让出充足空间！ */
                 padding: 85vw 20px 150px 20px; 
                 overflow-y: auto; 
                 overflow-x: hidden;
             }
             
             .about-left-col { width: 100%; padding-right: 0; padding-bottom: 40px; }
-            
-            /* 解除右侧面板的 relative 定位，让里面的视频可以直接相对于 .about-container 定位 */
             .about-right-col { position: static; width: 100%; }
             
-            /* 【核心修复】：移动端视频使用绝对定位强制置顶 */
             .about-video-wrapper { 
                 position: absolute; 
-                top: 100px; /* 在顶部菜单下方 */
+                top: 100px; 
                 left: 20px; 
                 width: calc(100% - 40px); 
                 margin: 0; 
@@ -361,7 +358,6 @@
             
             .about-contact-list { position: relative; top: auto; right: auto; flex-direction: column; align-items: flex-start; margin-top: 20px; margin-bottom: 60px; }
             
-            /* JUNJIE 依然稳稳固定在屏幕右下角 */
             .huge-name-wrapper {
                 position: fixed; 
                 right: 20px;     
@@ -371,7 +367,7 @@
                 pointer-events: none; 
             } 
             .huge-name {
-                font-size: 30vw; 
+                font-size: min(30vw, 200px); 
                 transform: scaleY(1.4);
                 transform-origin: bottom right; 
             }
@@ -478,7 +474,7 @@
             
             <div class="about-right-col">
                 <div class="about-video-wrapper anim-video">
-                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate" style="pointer-events: none; -webkit-touch-callout: none;" src="./images/AIJVDOU.mp4"></video>
+                    <video id="about-video" loop muted playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate" style="pointer-events: none; -webkit-touch-callout: none;" data-src="./images/AIJVDOU.mp4" preload="none"></video>
                 </div>
 
                 <div class="about-contact-list anim-stagger">
@@ -538,6 +534,7 @@
         const navAboutBtn = document.getElementById('nav-about');
         const aboutOverlay = document.getElementById('about-overlay');
         const aboutCloseBtn = document.getElementById('about-close-btn');
+        const aboutVideo = document.getElementById('about-video');
 
         const topRightContainer = document.querySelector('.top-right'); 
         const topLeftContainer = document.querySelector('.top-left'); 
@@ -668,7 +665,7 @@
 
             } catch (error) {
                 console.error("无法加载 data.json。", error);
-                document.body.innerHTML = "<h2 style='text-align:center; margin-top: 20%;'>配置加载失败。请使用本地 HTTP 服务器运行此页面。</h2>";
+                document.body.innerHTML = "<h2 style='text-align:center; margin-top: 20%; color: white;'>配置加载失败。请使用本地 HTTP 服务器运行此页面。</h2>";
             }
         };
 
@@ -726,7 +723,6 @@
             if (isTransitioning) return; 
             isTransitioning = true; 
 
-            // 只切换首页需要翻译的元素
             const textsToAnimate = [
                 document.querySelector('.profile-name'), document.getElementById('profile-title'), document.getElementById('profile-desc'), navAboutBtn,
                 ...document.querySelectorAll('.skill-tag span'),
@@ -751,6 +747,12 @@
             isTransitioning = true;
             aboutOverlay.classList.add('active');
 
+            if (!aboutVideo.src) {
+                aboutVideo.src = aboutVideo.getAttribute('data-src');
+                aboutVideo.load();
+            }
+            aboutVideo.play().catch(err => console.warn("视频播放被阻止：", err));
+
             gsap.to(physics, { velocity: 0, duration: 0.1 });
             
             const tl = gsap.timeline({ onComplete: () => { isTransitioning = false; } });
@@ -766,6 +768,8 @@
             if(isTransitioning) return;
             isTransitioning = true;
             
+            aboutVideo.pause();
+
             const tl = gsap.timeline({ onComplete: () => { aboutOverlay.classList.remove('active'); isTransitioning = false; } });
             
             tl.to(['.huge-name', '.anim-video', '.contact-row', '.anim-stagger'], { y: -20, opacity: 0, duration: 0.5, stagger: 0.02, ease: "power2.in" })
