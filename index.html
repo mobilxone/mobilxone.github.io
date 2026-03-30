@@ -185,7 +185,7 @@
         .detail-thumbnail-box img { width: 100%; height: 100%; object-fit: cover; }
 
         /* =========================================
-           ABOUT 覆层 (极简全白纯文本 + 独立内容)
+           ABOUT 覆层 (极简全白纯文本 + 不翻译的静态内容)
         ========================================= */
         #about-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -263,7 +263,7 @@
             background: linear-gradient(110deg, #ffffff 0%, #d8b4a0 15%, #7a6e67 30%, #e8d0c3 45%, #4a4a4a 60%, #bfa090 75%, #ffffff 90%, #d8b4a0 100%);
             background-size: 400% 400%;
             -webkit-background-clip: text;
-            background-clip: text;
+            background-clip: text; 
             -webkit-text-fill-color: transparent;
             animation: flowGradient 8s ease-in-out infinite alternate;
         }
@@ -276,7 +276,7 @@
         .anim-stagger, .huge-name, .contact-row, .anim-video { will-change: transform, opacity; }
 
         /* =========================================
-           移动端 (Mobile) 适配优化 
+           移动端 (Mobile) 终极适配优化 
         ========================================= */
         @media (max-width: 768px) {
             .cursor { display: none !important; }
@@ -294,8 +294,8 @@
             .top-left { top: 20px; left: 20px; } 
             .top-left .logo { font-size: 16px; } 
             
-            .top-right { top: 20px; right: 20px; display: flex !important; flex-direction: row; align-items: center; gap: 15px; } 
-            #nav-about, #lang-toggle { font-size: 9px; }
+            .top-right { top: 20px; right: 20px; display: flex !important; flex-direction: column; align-items: flex-end; gap: 10px; } 
+            #nav-about, #lang-toggle { font-size: 9px; line-height: 1; margin: 0; }
 
             #nav-container-wrapper { transform: translate(-50%, -50%); width: 100vw; }
             #nav-lines-container { gap: 5px; } 
@@ -321,13 +321,32 @@
             @keyframes arrowPulse { 0% { transform: translateX(0); opacity: 0.3; } 50% { transform: translateX(8px); opacity: 1; } 100% { transform: translateX(0); opacity: 0.3; } }
             #mobile-swipe-indicator.hidden-forever { opacity: 0 !important; display: none !important;}
 
-            .about-container { flex-direction: column; padding: 100px 20px 120px 20px; overflow-y: auto; }
-            .about-left-col { width: 100%; padding-right: 0; padding-bottom: 40px; }
-            .about-right-col { width: 100%; }
-            .about-contact-list { position: relative; align-items: flex-start; margin-top: 0; margin-bottom: 30px; }
+            /* =======================================
+               About 移动端终极排版 (打平层级、上下滑动)
+               ======================================= */
+            .about-container { 
+                display: flex; 
+                flex-direction: column; 
+                /* 增加底部留白，防止左下角版权文字重叠 */
+                padding: 80px 20px 150px 20px; 
+                overflow-y: auto; 
+                overflow-x: hidden;
+            }
             
-            .about-video-wrapper { position: relative; top: auto; left: auto; width: 100%; margin-bottom: 30px; max-width: none; }
+            /* 使用 display: contents 打平左右列结构，实现自由排序 */
+            .about-left-col, .about-right-col { display: contents; }
+            
+            /* 强行控制移动端的上下排列顺序 */
+            .about-video-wrapper { order: 1; position: relative; top: 0; left: 0; width: 100%; margin-bottom: 30px; max-width: none; pointer-events: none; }
+            .about-ext-title { order: 2; }
+            .about-ext-desc { order: 3; }
+            .about-exp-label { order: 4; }
+            .about-exp-list { order: 5; margin-bottom: 40px; }
+            .about-contact-list { order: 6; position: relative; flex-direction: column; align-items: flex-start; margin-bottom: 60px; }
+            
+            /* JUNJIE 死死固定在右下角 */
             .huge-name-wrapper {
+                order: 7;
                 position: fixed; 
                 right: 20px;     
                 bottom: 20px;    
@@ -335,7 +354,6 @@
                 z-index: 5;
                 pointer-events: none; 
             } 
-        
             .huge-name {
                 font-size: 15vw; 
                 transform: scaleY(1.4);
@@ -382,8 +400,8 @@
 
         <div class="corner-element top-left"><span class="logo hover-target">PORTFOLIO</span></div>
         <div class="corner-element top-right">
-            <a href="#" id="lang-toggle" class="underline-a hover-target">简 / EN</a>
             <a href="#" id="nav-about" class="underline-a hover-target">ABOUT</a>
+            <a href="#" id="lang-toggle" class="underline-a hover-target">简 / EN</a>
         </div>
         <div class="corner-element bottom-left" id="footer-text">LIU JUNJIE<br>ALL RIGHTS RESERVED 2026</div>
         <div class="corner-element bottom-right">
@@ -413,7 +431,7 @@
             
             <div class="about-right-col">
                 <div class="about-video-wrapper anim-video">
-                    <video autoplay loop muted playsinline src=""></video>
+                    <video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload" src=""></video>
                 </div>
 
                 <div class="about-contact-list anim-stagger">
@@ -590,11 +608,19 @@
                     links[2].href = siteData.profile.socials.twitter;
                 }
                 
-                // 動態填充 About 頁面中獨立的不參與翻譯的英文內容
+                // 从 JSON 加载 About 页面内容
                 document.getElementById('about-title-ext').innerText = siteData.profile.about.title;
                 document.getElementById('about-desc-ext').innerText = siteData.profile.about.desc;
                 document.getElementById('about-exp-label').innerText = siteData.profile.about.expLabel;
-                document.querySelector('.about-video-wrapper video').src = siteData.profile.about.video;
+                
+                // 解决动态加载视频在 iOS 端无法播放的问题
+                const aboutVideo = document.querySelector('.about-video-wrapper video');
+                aboutVideo.src = siteData.profile.about.video;
+                aboutVideo.load();
+                let playPromise = aboutVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => { console.log("Auto-play prevented by browser."); });
+                }
 
                 document.getElementById('about-email').href = `mailto:${siteData.profile.socials.email}`;
                 document.getElementById('about-email').innerText = siteData.profile.socials.email;
@@ -620,14 +646,13 @@
                 skillsContainer.innerHTML += `<div class="skill-tag hover-target"><svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 1.5-.5 2.5-2 2.5h-2c-.828 0-1.5.672-1.5 1.5 0 .337.112.653.303.905.158.243.25.534.25.845 0 1.243-1.007 2.25-2.25 2.25h-2.803zm-4.5-9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm3-3a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm4 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm3 3a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg><span id="skill-${i}-text"></span></div>`;
             });
 
-            // 首页原始时间线
             const mainTimelineContainer = document.getElementById('main-timeline-container');
             mainTimelineContainer.innerHTML = '';
             profileDataAll.en.timeline.forEach((_, i) => {
                 mainTimelineContainer.innerHTML += `<div class="timeline-item hover-target"><div class="timeline-dot"></div><div class="timeline-card"><div id="tl-date-${i}" class="tl-date"></div><div id="tl-role-${i}" class="tl-title"></div><div id="tl-comp-${i}" class="tl-comp"></div></div></div>`;
             });
 
-            // About 页面英文独立结构
+            // 从 JSON 动态生成 About 页面英文结构
             const aboutExpList = document.getElementById('about-exp-list');
             aboutExpList.innerHTML = '';
             profileDataAll.en.timeline.forEach((item) => {
@@ -682,6 +707,7 @@
             if (isTransitioning) return; 
             isTransitioning = true; 
 
+            // 只切换首页参与翻译的文本
             const textsToAnimate = [
                 document.querySelector('.profile-name'), document.getElementById('profile-title'), document.getElementById('profile-desc'), navAboutBtn,
                 ...document.querySelectorAll('.skill-tag span'),
