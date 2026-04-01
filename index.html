@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liu Junjie - 艺术画廊与个人作品集</title>
     
-    <link rel="icon" href="./images\个人logo黑色.png" type="image/png">
+    <link rel="icon" href="./images/个人logo黑色.png" type="image/png">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/个人logo黑色.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -224,15 +224,10 @@
         .about-ext-title { font-size: 13px; letter-spacing: 0.15em; color: #ffffff; margin: 0 0 25px 0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; font-weight: bold; }
         .about-ext-desc { font-size: 13px; line-height: 2.2; color: #ffffff; margin: 0 0 60px 0; text-transform: none; letter-spacing: 0.04em; font-weight: 300; white-space: pre-line; text-align: justify; opacity: 0.85; }
         
-        .about-exp-label { font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
-        
-        .about-exp-list { display: flex; flex-direction: column; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 15px;}
-        .about-pt-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); transition: background 0.3s ease; }
-        .about-pt-item:hover { background: rgba(255,255,255,0.04); padding-left: 10px; padding-right: 10px; margin-left: -10px; margin-right: -10px;}
-        .about-pt-left { display: flex; flex-direction: column; gap: 8px; }
-        .about-pt-role { font-size: 15px; font-weight: bold; letter-spacing: 0.05em; color: #ffffff; }
-        .about-pt-comp { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; font-weight: 300; }
-        .about-pt-date { font-size: 12px; color: #ffffff; letter-spacing: 0.1em; font-weight: bold; text-align: right; opacity: 0.9; }
+        /* 关于页 Logo 专属样式 */
+        .about-logos-container { display: flex; gap: 40px; margin-top: 2px; align-items: center; }
+        .about-logo { width: 80px; height: auto; opacity: 0.7; transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); cursor: none; }
+        .about-logo:hover { opacity: 1; transform: translateY(-5px); }
 
         .about-right-col { position: relative; width: 65%; display: flex; flex-direction: column; }
         
@@ -437,40 +432,19 @@
         <div class="about-container">
             <div class="about-left-col">
                 <h2 class="about-ext-title anim-stagger">PHOTOGRAPHER & AI GRAPHIC DESIGNER</h2>
-                <p class="about-ext-desc anim-stagger">As a visual storyteller, I am deeply passionate about the intersection of technology and traditional photographic arts. Over the years, I have honed my expertise in interior photography, sophisticated lighting design, and high-end retouching.
-
-                My philosophy revolves around using soft, natural lighting to sculpt the contours of objects. By faithfully reproducing the subtle interplay of light and shadow, I aim to deliver sophisticated, premium-quality visual aesthetics. I believe that light is not just a medium, but the very core of any visual masterpiece.</p>
-                <div class="about-exp-label anim-stagger">PROFESSIONAL EXPERIENCE</div>
+                <p class="about-ext-desc anim-stagger">I am an AI Graphic Designer specializing in product visuals, as well as a seasoned product photographer with years of hands-on professional experience.
+                 In 2019, I enrolled at the Guangdong Polytechnic of Water Resources and Electric Engineering, officially embarking on my journey of exploration within the visual arts. During my studies, I developed an almost obsessive passion for light and shadow, becoming captivated by the study of how different lighting conditions refract and reflect off object surfaces—a fascination that gradually led to the formation of my own unique aesthetic system. Upon graduating in 2022, I joined Zhongshan Quran E-commerce Co., Ltd. as a dedicated e-commerce product photographer. I specialize in utilizing soft, natural light to construct rich, layered interplay of light and shadow; through subtle contrasts between light and dark, I precisely define product contours and meticulously reproduce the distinct textures and three-dimensional qualities of various materials—capturing the cool crispness of metal, the softness of fabric, and the transparency of glass with exceptional fidelity.
+                 In 2024, I joined Zhuhai Huihuan Co., Ltd., where I continued to deepen my expertise in the field of product photography. I have always maintained that in a truly exceptional product image, light and shadow are the true protagonists; they infuse the composition with a transparent, natural atmosphere, striking a perfect balance between sophisticated aesthetic quality and commercial value.
+                 With the explosive growth of AI technology, I keenly recognized that the landscape of visual creation was on the cusp of a transformative revolution. In 2025, I joined the "Wu Ji Suo You" Studio, successfully completing a pivotal career transition from traditional photographer to AI Graphic Designer. Today, I seamlessly integrate the photographic aesthetics I have cultivated over years of practice with cutting-edge AI generation technologies. This approach allows me to retain the traditional photographer's uncompromising pursuit of perfection in light, shadow, and texture, while simultaneously harnessing the boundless creativity and unparalleled efficiency afforded by AI—enabling me to craft commercial visual assets for brands that are both highly competitive and uniquely distinctive.</p>
                 
-                <div class="about-exp-list" id="about-exp-list">
-                    <div class="about-pt-item anim-stagger">
-                        <div class="about-pt-left">
-                            <div class="about-pt-role">AI Graphic Designer</div>
-                            <div class="about-pt-comp">Wu Ji Suo You Studio</div>
-                        </div>
-                        <div class="about-pt-date">2025 - PRESENT</div>
-                    </div>
-                    <div class="about-pt-item anim-stagger">
-                        <div class="about-pt-left">
-                            <div class="about-pt-role">Chief Photographer</div>
-                            <div class="about-pt-comp">Zhuhai Huihuan Co. Ltd.</div>
-                        </div>
-                        <div class="about-pt-date">2023 - 2025</div>
-                    </div>
-                    <div class="about-pt-item anim-stagger">
-                        <div class="about-pt-left">
-                            <div class="about-pt-role">Chief Photographer</div>
-                            <div class="about-pt-comp">Zhongshan Quran E-commerce Co. Ltd.</div>
-                        </div>
-                        <div class="about-pt-date">2022 - 2023</div>
-                    </div>
-                    <div class="about-pt-item anim-stagger">
-                        <div class="about-pt-left">
-                            <div class="about-pt-role">Associate Degree</div>
-                            <div class="about-pt-comp">Guangdong Polytechnic of Water Resources and Electric Power</div>
-                        </div>
-                        <div class="about-pt-date">2019 - 2022</div>
-                    </div>
+                <div class="about-logos-container anim-stagger">
+                    <img src="./images/个人logo.png" alt="Logo 1" class="about-logo hover-target">
+                    <img src="./images/AIJlogo白.png" alt="Logo 2" class="about-logo hover-target">
+                    <img src="./images/awlogo.png" alt="Logo 3" class="about-logo hover-target">
+                    <img src="./images/fwalogo-.png" alt="Logo 4" class="about-logo hover-target">
+                    <img src="./images/weblogo.png" alt="Logo 5" class="about-logo hover-target">
+                    <img src="./images/PEGI.png" alt="Logo 6" class="about-logo hover-target">
+
                 </div>
             </div>
             
